@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: schedule-service
+
+server:
+  port: 8084
