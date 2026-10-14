@@ -1,71 +1,45 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
     name: api-gateway
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/neobank}
+
   cloud:
     gateway:
       routes:
-        - id: auth-service
-          uri: ${AUTH_SERVICE_URL:http://localhost:8081}
-          predicates:
-            - Path=/api/v1/auth/**
         - id: account-service
           uri: ${ACCOUNT_SERVICE_URL:http://localhost:8082}
           predicates:
-            - Path=/api/v1/accounts/**,/api/v1/admin/accounts/**
-        - id: beneficiary-service
-          uri: ${BENEFICIARY_SERVICE_URL:http://localhost:8083}
-          predicates:
-            - Path=/api/v1/beneficiaries/**,/api/v1/ifsc/**
+            - Path=/api/accounts/**
+
         - id: transfer-service
-          uri: ${TRANSFER_SERVICE_URL:http://localhost:8084}
+          uri: ${TRANSFER_SERVICE_URL:http://localhost:8083}
           predicates:
-            - Path=/api/v1/transfers/**,/api/v1/schedules/**
+            - Path=/api/transfers/**
+
+        - id: beneficiary-service
+          uri: ${BENEFICIARY_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/api/beneficiaries/**
+
         - id: loan-service
           uri: ${LOAN_SERVICE_URL:http://localhost:8085}
           predicates:
-            - Path=/api/v1/loans/**,/api/v1/officer/**,/api/v1/admin/loans/**
-        - id: statement-service
-          uri: ${STATEMENT_SERVICE_URL:http://localhost:8086}
-          predicates:
-            - Path=/api/v1/statements/**
-        - id: ai-service
-          uri: ${AI_SERVICE_URL:http://localhost:8090}
-          predicates:
-            - Path=/api/v1/insights/**,/api/v1/kyc/**,/api/v1/assistant/**
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Origin
+            - Path=/api/loans/**
+
   data:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
 
-neobank:
-  jwt:
-    secret: ${JWT_SECRET:change-this-secret-to-at-least-32-characters-long}
-    expiry-seconds: ${JWT_EXPIRY_SECONDS:3600}
-  session:
-    idle-timeout-seconds: 300
-  public-paths:
-    - /api/v1/auth/login
-    - /api/v1/auth/admin/login
-    - /actuator/health
-  rate-limit:
-    requests-per-minute: 120
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics,prometheus
-  endpoint:
-    health:
-      probes:
-        enabled: true
-
-logging:
-  level:
-    root: INFO
-    com.neobank: ${LOG_LEVEL:DEBUG}
+app:
+  security:
+    jwt:
+      audience: neobank-api
