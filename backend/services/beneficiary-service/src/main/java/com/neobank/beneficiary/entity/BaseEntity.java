@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -24,7 +26,8 @@ public abstract class BaseEntity {
     @Column (name = "id", updatable = false, nullable = false)
     private Long id;
     @EqualsAndHashCode.Include
-    @Column (name = "public_id", columnDefinition = "uuid", updatable = false, nullable = false, unique = true)
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(name = "public_id", columnDefinition = "char(36)", length = 36, updatable = false, nullable = false, unique = true)
     private UUID publicId;
     @CreatedDate
     @Column (name = "created_at", updatable = false, nullable = false)
