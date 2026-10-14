@@ -1,0 +1,27 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: ledger-service-postgres-it
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/neobank_ledger}
+    username: ${SPRING_DATASOURCE_USERNAME:neobank_ledger_app}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 3
+      connection-timeout: 30000
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: ${FLYWAY_USER:neobank_ledger_migrator}
+    password: ${FLYWAY_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false

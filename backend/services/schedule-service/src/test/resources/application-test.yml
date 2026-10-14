@@ -1,0 +1,31 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: schedule-service
+  datasource:
+    url: jdbc:h2:mem:neobank_schedule;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1;INIT=CREATE ROLE IF NOT EXISTS neobank_schedule_app
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+neobank:
+  transfer:
+    url: http://localhost:8082
+  schedule:
+    transfer-service-token: dev-schedule-to-transfer-token-secret-local
+    worker:
+      enabled: false

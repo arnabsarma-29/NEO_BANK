@@ -1,0 +1,13 @@
+{
+  "transferId": "TRF-LIVE-TEST-001",
+  "idempotencyKey": "IDEMP-TRF-LIVE-TEST-001",
+  "scheduleId": "SCH-LIVE-TEST-001",
+  "occurrenceId": "OCC-LIVE-TEST-001",
+  "customerId": "CUST-LIVE-VERIFY-001",
+  "sourceAccountId": "ACC-LIVE-TEST-SRC-01",
+  "destinationAccountId": "ACC-LIVE-TEST-DST-01",
+  "transferType": "OWN_ACCOUNT",
+  "amount": 150.00,
+  "currency": "INR",
+  "remarks": "Live integration verification"
+}

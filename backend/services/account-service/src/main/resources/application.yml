@@ -1,6 +1,40 @@
+server:
+  port: 9081
+
 spring:
   application:
     name: account-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/neobank_account}
+    username: ${SPRING_DATASOURCE_USERNAME:neobank_account_app}
+    password: account_app
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: ${FLYWAY_USER:neobank_account_migrator}
+    password: account_migrator
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: account-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
 
-server:
-  port: 8081
+neobank:
+  account:
+    kafka:
+      enabled: ${NEOBANK_ACCOUNT_KAFKA_ENABLED:false}
+  kafka:
+    topics:
+      transaction-created: ${KAFKA_TOPIC_TRANSACTION_CREATED:ledger.transaction-created}
+      balance-updated: ${KAFKA_TOPIC_BALANCE_UPDATED:ledger.balance-updated}
+      ledger-events: ${KAFKA_TOPIC_LEDGER_EVENTS:ledger.events}

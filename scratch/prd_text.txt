@@ -1,0 +1,3412 @@
+﻿NEOBANK
+PRODUCT REQUIREMENTS DOCUMENT
+Retail Internet Banking Portal
+Field
+Value
+Product
+NeoBank
+Document
+Product Requirements Document
+Version
+1.0
+Status
+Draft
+Product Owner
+TBD
+Product Manager
+TBD
+Project Lead
+TBD
+Prepared By
+TBD
+Reviewed By
+TBD
+Approved By
+TBD
+Date
+TBD
+Critical Product Constraint: All money movement is simulated. The product must not be described as performing real financial transactions.
+Source of truth: the approved NeoBank BRD. This PRD translates the approved BRD into product capabilities, user journeys, screens, interactions, product states, acceptance criteria and release considerations. The latest PRD prompt requires that BRD IDs, TR IDs, confirmed rules, role definitions and project scope are preserved, and that TBD items are carried forward. 
+1. Document Control
+This section establishes document ownership, review state and versioning for the product baseline.
+Version
+Date
+Author
+Change Description
+Status
+1.0
+TBD
+TBD
+Initial PRD translation from approved NeoBank BRD.
+Draft
+2. Product Overview
+NeoBank is a retail internet banking portal for customer account management, beneficiary management, simulated transfers, scheduled transfers, statements and loans, supplemented by AI-powered fraud detection, spending insights, loan pre-assessment, KYC checking and banking assistance.
+The product is intentionally product-focused. Engineering implementation details are out of scope for this PRD and belong in SRS/HLD/LLD/technical design documentation.
+Dimension
+Product  View
+Target users
+Customer; Teller; Loan Officer; Branch Admin
+Core banking capabilities
+Accounts; Beneficiaries; Fund Transfer; Scheduled Transfers; Statements; Loans
+AI capabilities
+Fraud Detection; Spend Insights; Loan Eligibility Pre-Assessment; KYC Document Check; Banking Assistant
+Critical constraint
+All money movement is simulated.
+Source of truth
+Approved NeoBank BRD
+3. Product Vision
+Product Vision: NeoBank aims to provide a secure, intuitive and intelligent digital banking experience where customers can manage accounts, transfers and loans while receiving AI-powered insights and assistance.
+The vision does not introduce any capability beyond the approved BRD; AI remains an assisting capability and not an autonomous financial actor.
+4. Product Goals
+Make account visibility easy and understandable.
+Provide a straightforward beneficiary-management journey with lifecycle controls.
+Make simulated fund transfers clear and confirmable through review and OTP.
+Support future-dated and recurring simulated transfers.
+Make statements easy to generate, view and download.
+Simplify loan application and EMI estimation while preserving human decision ownership.
+Protect sessions through the confirmed five-minute idle timeout and specified password interaction.
+Provide authorized branch-level approval workflows.
+Provide useful AI-assisted fraud, spending, loan, KYC and read-only assistant experiences.
+Priority Rule: Individual feature priorities are not defined in the BRD. The PRD therefore uses 'TBD – Product Owner Decision Required' rather than inventing priorities.
+5. Target Users / Personas
+Persona
+Goals
+Common Product Actions
+Product Expectations
+Customer
+Manage personal banking information and simulated banking actions
+View accounts; manage beneficiaries; transfer; schedule; statements; loans; use supported AI features
+Simple, clear self-service journeys; strong status/error communication
+Teller
+Bank operations role
+Detailed permissions are not defined in the BRD
+Product access and actions are TBD
+Loan Officer
+Review loan applications and make final human decisions
+Review applications; make final loan decision
+Clear application context and separation of AI advice from final decision
+Branch Admin
+Branch-level approval of accounts and loans
+Review pending accounts/loans; approve/reject
+Strong authorization, status and audit visibility
+6. Product Scope
+MVP / Initial Release: MVP Scope – Product Decision Required. The BRD defines project scope but does not explicitly allocate features to an MVP release.
+Until Product Owner approval, the feature set should be treated as the product scope baseline without committing a release boundary.
+6.1 In Scope
+Accounts
+Beneficiaries
+Fund Transfer
+Scheduled Transfers
+Statements
+Loans
+Security
+Branch Admin
+Fraud Detection
+Spend Insights
+Loan Eligibility
+KYC Document Check
+Banking Assistant
+Product-level validations, states, notifications, access and audit expectations
+6.2 Future Scope
+Future Scope – TBD. The BRD does not identify a separate future-feature list.
+6.3 Out of Scope
+Real-world fund movement
+Real UPI transactions
+Real payment processing
+Production banking-core integration
+AI making final loan decisions
+AI directly executing transfers
+Banking Assistant executing transactions
+Technical architecture/code/database design
+7. Product Feature Map
+Feature ID
+Module
+Feature
+Primary User
+Priority
+Release
+BRD Requirement
+BNK-FR-01
+Accounts
+Account Summary
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-01
+BNK-FR-02
+Beneficiaries
+Add Beneficiary and Activation
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-02
+BNK-FR-03
+Fund Transfer
+Simulated Fund Transfers
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-03
+BNK-FR-04
+Scheduled Transfers
+Future-Dated and Recurring Transfers
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-04
+BNK-FR-05
+Statements
+Generate and Download Statements
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-05
+BNK-FR-06
+Loans
+Loan Application and EMI Calculator
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-06
+BNK-FR-07
+Security
+Session Timeout and Virtual Keyboard
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-07
+BNK-FR-08
+Branch Admin
+Account and Loan Approval
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-FR-08
+BNK-AI-01
+Fraud Detection
+Transaction Fraud Risk Assessment
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-AI-01
+BNK-AI-02
+Spend Insights
+Transaction Categorization and Monthly Spending Explanation
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-AI-02
+BNK-AI-03
+Loan Eligibility
+AI Loan Eligibility Pre-Assessment
+Customer / Loan Officer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-AI-03
+BNK-AI-04
+KYC Document Check
+KYC Information Extraction and Mismatch Detection
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-AI-04
+BNK-AI-05
+Banking Assistant
+Read-Only Banking Assistant
+Customer
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+BNK-AI-05
+8. Prioritization
+Priority
+Meaning
+Usage in This PRD
+P0
+Critical
+Not assigned; priority definition is available but no feature priority was provided.
+P1
+High
+Not assigned; Product Owner decision required.
+P2
+Medium
+Not assigned; Product Owner decision required.
+P3
+Low
+Not assigned; Product Owner decision required.
+TBD
+Not yet defined
+Default status for all features because the BRD does not define feature priority.
+Product Decision Required: Confirm priority for BNK-FR-01 to BNK-FR-08 and BNK-AI-01 to BNK-AI-05 before release sequencing is committed.
+9. Product Navigation / Information Architecture
+9.1 Customer Navigation
+Confirmed high-level navigation direction:
+Login → Dashboard → Accounts → Beneficiaries (where needed) → Fund Transfer → Fraud Assessment → Confirmation → OTP → Transaction Result
+Loan journey: Loan Application → KYC → AI Pre-Assessment (advisory) → Loan Officer Review → Approve / Reject
+9.2 Branch Admin Navigation
+Branch Admin Login → Admin Dashboard → Account Approvals / Loan Approvals
+Navigation Status: The journey is confirmed at high level. Exact placement, menu labels, screen grouping and optional-step ordering remain Product/UI decisions unless explicitly specified in the BRD.
+10. User Journeys
+Journeys below translate BRD processes into product-oriented entry points, goals, actions and outcomes. They do not introduce implementation behavior.
+Journey ID
+Journey
+Feature
+User Goal
+Journey Flow
+Notes
+UJ-01
+Customer Login
+Login
+Authenticate and reach the banking portal
+Open login → enter credentials → submit → validate → authenticated dashboard or error
+If idle after login, five-minute timeout behavior applies.
+UJ-02
+View Account
+Accounts
+Understand account balances and details
+Open Accounts → review list/cards → select account → browse tabs → view status/balance
+No accounts produces empty state.
+UJ-03
+Add Beneficiary
+Beneficiaries
+Create a valid transfer destination
+Open Beneficiaries → Add → enter details → IFSC lookup/autosuggest → validate → submit → pending
+Duplicate/invalid entries are blocked.
+UJ-04
+Activate Beneficiary
+Beneficiaries
+Make beneficiary eligible for transfers
+Pending beneficiary → wait/meet activation condition → status becomes Active
+Cooling duration is TBD.
+UJ-05
+Own Account Transfer
+Fund Transfer
+Move simulated funds between own accounts
+Select own-account transfer → source/destination → amount → validation → confirmation → OTP → fraud assessment/handling → result
+All movement is simulated.
+UJ-06
+Other Bank Transfer
+Fund Transfer
+Send simulated funds to active beneficiary
+Select other-bank transfer → choose active beneficiary → amount → validation → confirmation → OTP → fraud assessment/handling → result
+Inactive beneficiaries cannot be used.
+UJ-07
+Mock UPI Transfer
+Fund Transfer
+Use mock UPI transfer experience
+Select mock UPI → enter/select simulated destination → amount → validation → confirmation → OTP → fraud assessment/handling → result
+No real UPI processing.
+UJ-08
+High-Risk Transfer
+Fraud Detection
+Resolve a transfer held for high risk
+Transfer → risk assessment → high risk → hold → additional confirmation → proceed/cancel
+Exact human override/fallback is TBD.
+UJ-09
+Scheduled Transfer
+Scheduled Transfers
+Plan a future or recurring simulated transfer
+Open schedules → create → destination/amount/date/frequency → validate → confirm → status
+Recurrence options TBD.
+UJ-10
+Generate Statement
+Statements
+Get statement for selected account/date range
+Select account → dates → generate → open new tab
+Date rules apply.
+UJ-11
+Download Statement
+Statements
+Save statement as PDF
+Generate statement → open new tab → download PDF
+Large-statement behavior TBD.
+UJ-12
+Loan Application
+Loans
+Submit a loan application
+Select product → enter info → use EMI calculator → optional AI assessment → review → submit → track status
+Final decision remains human.
+UJ-13
+EMI Calculation
+Loans
+Estimate EMI while adjusting amount/tenure
+Adjust sliders → calculator refreshes result
+Exact calculation source/limits TBD.
+UJ-14
+AI Loan Pre-Assessment
+AI Loan Eligibility
+Understand indicative eligibility
+Run/view AI assessment → see suggested amount/reasons → read advisory disclaimer → proceed to human review
+AI cannot approve/reject.
+UJ-15
+Loan Officer Decision
+Loans
+Make final loan decision
+Open pending application → review → decide approve/reject → status recorded
+Officer owns final decision.
+UJ-16
+KYC Document Upload
+KYC Document Check
+Provide KYC document for automated checking
+Open upload → choose file → validate → processing → extracted information/result
+Supported document types TBD.
+UJ-17
+KYC Mismatch
+KYC Document Check
+Resolve a mismatch flag
+View mismatch → review extracted vs customer information → retry/manual review
+Manual-review workflow TBD.
+UJ-18
+Spend Insights
+Spend Insights
+Understand monthly spending
+Open insights → choose/view month → see categories/totals → read explanation → review uncategorised data
+Explanation is AI-generated and grounded in actual data.
+UJ-19
+Banking Assistant
+Banking Assistant
+Get quick read-only banking information
+Open assistant → ask supported question → retrieve authorized data → answer
+Transfer requests are refused.
+UJ-20
+Branch Admin Account Approval
+Branch Admin
+Approve/reject a pending account
+Admin login → pending accounts → detail → approve/reject → confirmation → status
+Exact authentication mechanism TBD.
+UJ-21
+Branch Admin Loan Approval
+Branch Admin
+Approve/reject a pending loan
+Admin login → pending loans → detail → approve/reject → confirmation → status
+Exact scope beyond specified approvals TBD.
+UJ-22
+Session Timeout
+Security
+Protect an unattended session
+Inactivity reaches 5 minutes → timeout popup → continue or logout → if expired, authenticate again
+Unsaved-information behavior TBD.
+11. Detailed Product Feature Requirements
+Each BRD requirement has a dedicated PRD feature specification. The format below is applied consistently to preserve traceability and support UI/UX, development, QA and UAT planning.
+BNK-FR-01 – Account Summary
+Module: Accounts
+BRD Traceability: BNK-FR-01
+TR Traceability: TR-03
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Enable an authenticated customer to quickly understand their available banking relationships and open account-level information without losing account context.
+User Problem
+Customers need a consolidated view of Savings, Current and FD accounts, with clear balances and account details.
+Product Behavior
+The product presents authorized accounts, distinguishes supported account types, shows balances and status, and allows the customer to select an account and view account information in tabs. Account number presentation must appropriately protect sensitive information.
+Entry Point
+Authenticated Dashboard → Accounts
+User / Roles
+Customer. Staff access outside explicitly approved permissions remains TBD.
+Screen / UI Requirements
+Accounts page with an account list/cards area.
+Account type visibly identified for Savings, Current and FD.
+Balance shown prominently for each accessible account.
+Account selection preserves selected-account context.
+Account Details area uses tabs for account-specific information.
+FD-specific information appears only when relevant.
+Account status and masked account number are visible where applicable.
+User Actions
+Open Accounts.
+Select an account.
+Navigate account-detail tabs.
+Refresh account information where supported.
+Data Display Requirements
+Account type
+Balance
+Account status
+Masked account number
+FD-specific information where relevant
+Validation
+User must have permission to view the account.
+Returned account context must belong to/resolve to the authorized user.
+Sensitive account numbers must be appropriately masked.
+Loading State
+Show an Accounts loading state until account information is available.
+Empty State
+If no accounts are available, show a clear empty state without implying an account exists.
+Error State
+If retrieval fails, show a recoverable error state and do not expose unauthorized or stale-sensitive information as though it were current.
+Success State
+Authorized account summaries and selected account details are displayed accurately.
+Confirmation
+No business confirmation is required for viewing account information.
+Notifications
+In-app error/empty-state messaging where applicable. Other channels are TBD.
+Permissions
+Customer: View. Staff permissions: TBD.
+Business Rules
+Only authorized account information is presented.
+Supported account types are Savings, Current and FD.
+Available-balance semantics, if different from balance, are TBD.
+No additional account fields are treated as confirmed unless defined by the BRD.
+Dependencies
+Authentication; account data.
+Audit
+Account viewing and material account activity should be auditable; exact audit events/retention are TBD.
+Acceptance Criteria
+AC-01-01: Given an authenticated customer with an accessible account, when Accounts is opened, then the account summary is displayed.
+AC-01-02: Given a selected account, when details are opened, then account-specific information is presented in tabs.
+AC-01-03: Given account data is unavailable, then the product shows an appropriate error/empty state without unauthorized data.
+Open Questions
+What additional account-detail fields are required?
+What is the exact masking standard?
+Should available balance be shown separately from account balance?
+BNK-FR-02 – Add Beneficiary and Activation
+Module: Beneficiaries
+BRD Traceability: BNK-FR-02
+TR Traceability: TR-01 L3
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Provide a controlled beneficiary lifecycle so customers can add valid destinations and use them for transfers only after activation.
+User Problem
+Customers need a reliable way to create transfer beneficiaries while reducing duplicate or premature use.
+Product Behavior
+Customers can view beneficiaries, add a beneficiary, use IFSC lookup/autosuggest, validate beneficiary information, and see pending/active/failed activation states. A beneficiary remains unavailable for transfer until the activation condition is satisfied.
+Entry Point
+Dashboard → Beneficiaries → Add Beneficiary
+User / Roles
+Customer.
+Screen / UI Requirements
+Beneficiary list with lifecycle status.
+Add Beneficiary form.
+IFSC lookup/autosuggest interaction.
+Visible pending/active/failed status.
+Clear transfer restriction messaging for inactive beneficiaries.
+User Actions
+View beneficiaries.
+Enter beneficiary name, account number, confirmation account number, bank/IFSC information.
+Use IFSC lookup/autosuggest.
+Submit beneficiary.
+Review lifecycle status.
+Use activated beneficiary in Fund Transfer.
+Data Display Requirements
+Beneficiary name
+Account number
+Confirm account number
+Bank name where available
+IFSC
+Beneficiary status
+Validation
+Account number confirmation must match.
+IFSC must pass the configured validation/lookup.
+Mandatory information must be complete.
+Duplicate beneficiary conditions must be checked.
+Loading State
+Show lookup/validation progress without allowing duplicate submission.
+Empty State
+If no beneficiaries exist, show an empty state with an Add Beneficiary action.
+Error State
+Show field-level validation and service failure states; do not create unintended active beneficiaries.
+Success State
+Beneficiary is created in the correct lifecycle state and its status is visible.
+Confirmation
+Submission may require security confirmation per approved business rule; exact requirement is TBD.
+Notifications
+Beneficiary created/pending/activated notifications; channel beyond in-app is TBD.
+Permissions
+Customer: View/Create; Edit/Delete details are subject to lifecycle rules and TBD policy.
+Business Rules
+A valid new beneficiary is placed into pending activation.
+Cooling-period duration is TBD – Business Decision Required.
+Beneficiary cannot be used for transfer before activation.
+Duplicate handling must prevent unintended duplicate destinations.
+Modification/deletion behavior depends on business decision and beneficiary status.
+Dependencies
+Authentication; IFSC lookup; notification capability; Fund Transfer.
+Audit
+Creation, activation, status change and material modification/deletion should be auditable; retention TBD.
+Acceptance Criteria
+AC-02-01: Given valid beneficiary information, when submitted, then a pending beneficiary is created.
+AC-02-02: Given a beneficiary still within the cooling period, when used for transfer, then the transfer is blocked.
+AC-02-03: Given the activation condition is satisfied, then the beneficiary becomes Active.
+Open Questions
+Cooling period duration – TBD – Business Decision Required.
+What exact actions are allowed while Pending?
+What are modification/deletion rules by status?
+BNK-FR-03 – Simulated Fund Transfers
+Module: Fund Transfer
+BRD Traceability: BNK-FR-03
+TR Traceability: TR-06, TR-05
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Provide a clear, confirmable simulated transfer journey for own-account, other-bank and mock UPI transfers with OTP and fraud-control points.
+User Problem
+Customers need a consistent transfer experience that makes destination, amount, confirmation and verification steps explicit.
+Product Behavior
+The product supports three transfer types: own account, other bank and mock UPI. The confirmed business flow is Transfer → Confirmation Dialog → OTP Modal → Result. Fraud assessment is an interaction point for risk handling; high-risk transactions may be held for additional confirmation.
+Entry Point
+Dashboard → Fund Transfer
+User / Roles
+Customer; Fraud Detection; human review role TBD.
+Screen / UI Requirements
+Transfer form with transfer-type choice.
+Source and destination controls.
+Beneficiary selection for other-bank flow.
+Amount and remarks inputs.
+Transfer review/confirmation dialog.
+OTP modal.
+Transaction result screen/state.
+High-risk hold/extra-confirmation experience.
+User Actions
+Choose transfer type.
+Select source and destination.
+Enter amount and remarks.
+Review transfer.
+Confirm or cancel.
+Enter OTP.
+Respond to additional confirmation if transaction is high risk.
+View final status/reference.
+Data Display Requirements
+Transfer type
+Source account
+Destination account/beneficiary
+Amount
+Remarks
+OTP
+Transaction status/reference
+Validation
+Source and destination must be valid for transfer type.
+Amount must satisfy configured amount/balance rules.
+OTP must be valid/unexpired.
+Unauthorized account/destination access is blocked.
+Loading State
+Show processing state during validation, OTP generation/verification, fraud assessment and final result.
+Empty State
+Transfer destination lists with no valid options should show a clear empty state and next action, without fabricating options.
+Error State
+Field-level input errors, service failure, invalid/expired OTP, cancelled transfer and blocked/high-risk outcomes must be distinct.
+Success State
+Simulated transfer completes and shows a transaction reference and status.
+Confirmation
+Mandatory confirmation dialog followed by OTP; high-risk cases require additional confirmation.
+Notifications
+Transfer success/failure and high-risk alerts in-app; email/SMS/push channels are TBD.
+Permissions
+Customer: View/Create/Execute simulated transfers. Other role permissions TBD.
+Business Rules
+All money movement is simulated.
+Confirmation occurs before OTP.
+Active beneficiaries are required for beneficiary transfers.
+Transaction limits are TBD – Business Decision Required.
+OTP expiry/retry rules are TBD.
+High-risk transactions are held for additional confirmation.
+Dependencies
+Accounts; Beneficiaries; Authentication; OTP; Fraud Detection.
+Audit
+Audit transfer initiation, confirmation, OTP outcome, final status and relevant fraud assessment/human intervention.
+Acceptance Criteria
+AC-03-01: Given valid transfer information, when the customer confirms, then OTP is requested.
+AC-03-02: Given valid OTP and no blocking risk rule, then the simulated transfer completes and a reference is displayed.
+AC-03-03: Given invalid/expired OTP, then the transfer does not complete.
+AC-03-04: Given a high-risk assessment, then the transaction is held for additional confirmation.
+Open Questions
+Transaction limit – TBD.
+OTP expiry duration – TBD.
+OTP retry limit – TBD.
+Exact ordering of fraud assessment versus OTP verification beyond the confirmed BRD flow needs Product Decision if implementation requires further specificity.
+What human role can override a fraud hold? – TBD.
+11.3.1 Own Account Transfer
+Product flow: Transfer Form → Validation → Confirmation Dialog → OTP Modal → OTP Verification → Fraud Assessment → Transaction Result. This is a product translation of the confirmed transfer requirement; any additional sequencing detail remains subject to product clarification.
+11.3.2 Other Bank Transfer
+Product flow follows the same confirmed transfer pattern, with an active beneficiary serving as the destination.
+11.3.3 Mock UPI Transfer
+Product flow follows the same simulated transfer pattern using a mock UPI destination. Real UPI processing is out of scope.
+BNK-FR-04 – Future-Dated and Recurring Transfers
+Module: Scheduled Transfers
+BRD Traceability: BNK-FR-04
+TR Traceability: TR-02
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Allow customers to create future-dated or recurring simulated transfer instructions with clear schedule status.
+User Problem
+Customers need to plan future payment actions instead of initiating every transfer immediately.
+Product Behavior
+Customers select a destination, amount and schedule type, choose dates using a date picker and configure recurrence where applicable. The product validates the schedule, confirms it and presents its status.
+Entry Point
+Dashboard → Scheduled Transfers
+User / Roles
+Customer.
+Screen / UI Requirements
+Scheduled Transfer list/status.
+Create schedule form.
+Date picker.
+Recurrence selector where supported.
+Schedule review/confirmation.
+Execution status.
+User Actions
+Create one-time or recurring schedule.
+Select destination.
+Enter amount.
+Choose start/end dates where applicable.
+Choose recurrence where applicable.
+Confirm.
+View/modify/cancel schedule subject to TBD lifecycle rules.
+Data Display Requirements
+Destination/beneficiary
+Amount
+Start date
+End date
+Recurrence
+Schedule status
+Execution status
+Validation
+Start date cannot violate future-date rule.
+End date must be compatible where applicable.
+Required schedule information must be complete.
+Destination must be eligible.
+Loading State
+Show date/eligibility validation and schedule-creation processing states.
+Empty State
+No schedules: show an empty state and Create Schedule action.
+Error State
+Invalid dates, unsupported recurrence, duplicate submission or service failure must be distinguishable.
+Success State
+Schedule is created and status displayed.
+Confirmation
+Schedule confirmation is required before creation.
+Notifications
+Schedule creation and execution outcome notifications where supported; channels/timing TBD.
+Permissions
+Customer: View/Create; Edit/Cancel are subject to TBD business rules.
+Business Rules
+Future-date validation applies.
+Recurrence options are TBD.
+Modification/cancellation rules are TBD.
+Future execution is simulated.
+Beneficiary must be active if used as destination.
+Dependencies
+Accounts; Beneficiaries; Fund Transfer.
+Audit
+Creation, modification, cancellation and execution outcome should be auditable.
+Acceptance Criteria
+AC-04-01: Given a valid future date, then a future-dated schedule can be created.
+AC-04-02: Given a valid recurring configuration, then a recurring schedule can be created.
+AC-04-03: Given a prohibited past date, then schedule creation is prevented.
+Open Questions
+Supported recurring frequencies – TBD.
+Are end dates mandatory for recurring schedules? – TBD.
+What modifications/cancellations are allowed after creation? – TBD.
+BNK-FR-05 – Generate and Download Statements
+Module: Statements
+BRD Traceability: BNK-FR-05
+TR Traceability: TR-02, TR-03
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Provide easy, controlled access to statements for a selected account and date range, including PDF download and new-tab viewing.
+User Problem
+Customers need transaction history in a usable statement format for review and download.
+Product Behavior
+Customer selects an account and date range, generates a statement, opens it in a new tab and downloads the PDF where required.
+Entry Point
+Dashboard → Statements
+User / Roles
+Customer; staff access TBD.
+Screen / UI Requirements
+Account selector.
+From/To date controls.
+Statement result area.
+New-tab action.
+PDF download action.
+Empty/error states.
+User Actions
+Select account.
+Choose From and To dates.
+Generate.
+Open in new tab.
+Download PDF.
+Data Display Requirements
+Account
+From date
+To date
+Transaction information included in generated statement
+Validation
+From date cannot be after To date.
+Account must be accessible.
+Dates must be valid.
+Loading State
+Show generation progress and prevent duplicate generation actions where appropriate.
+Empty State
+No transactions: provide a clear empty statement/result state.
+Error State
+Generation/download failures show recoverable messaging.
+Success State
+Statement opens in new tab and PDF download is available.
+Confirmation
+No business confirmation specified.
+Notifications
+In-app errors; other channels TBD.
+Permissions
+Customer: View/Generate/Download; staff TBD.
+Business Rules
+Statement includes only the selected account and date range.
+Exact date-range maximum is TBD.
+Authorization is mandatory.
+Dependencies
+Account data; Transaction data; PDF generation.
+Audit
+Statement generation/download should be auditable where required; retention TBD.
+Acceptance Criteria
+AC-05-01: Given a valid account/date range, then a statement is generated.
+AC-05-02: Given a generated statement, then it opens in a new tab.
+AC-05-03: Given a generated statement, then PDF download is available.
+AC-05-04: Given no transactions, then an appropriate empty result is shown.
+Open Questions
+Maximum statement date range – TBD.
+Expected behavior for very large statements – TBD.
+BNK-FR-06 – Loan Application and EMI Calculator
+Module: Loans
+BRD Traceability: BNK-FR-06
+TR Traceability: TR-04, TR-01 L4
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Provide a structured loan application journey with EMI estimation and clear human decision ownership.
+User Problem
+Customers need to understand loan affordability and submit applications, while loan staff need a defined review and decision journey.
+Product Behavior
+Customer selects a loan product, enters application information, uses an EMI calculator in an iframe with slider inputs, may receive AI pre-assessment, submits the application, and the Loan Officer reviews and makes the final decision. Branch Admin approval may apply according to the approved workflow.
+Entry Point
+Dashboard → Loans
+User / Roles
+Customer; Loan Officer; Branch Admin; AI Loan Eligibility.
+Screen / UI Requirements
+Loan product selection.
+Application form.
+Loan amount and tenure sliders.
+EMI calculator area using the specified iframe.
+AI pre-assessment display with advisory label.
+Application status.
+Loan Officer review/decision area.
+Approval/rejection outcome.
+User Actions
+Select loan product.
+Enter application information.
+Adjust amount/tenure sliders.
+Review EMI.
+Review AI pre-assessment if available.
+Submit application.
+Track status.
+Loan Officer reviews/decides.
+Data Display Requirements
+Loan product
+Applicant information
+Loan amount
+Tenure
+Interest rate
+EMI result
+Application status
+AI pre-assessment
+Validation
+Required application data must be complete.
+Loan amount and tenure must comply with approved business limits once defined.
+If calculator unavailable, do not fabricate EMI output.
+Only authorized staff may review/decide.
+Loading State
+Show calculator loading, application submission, AI assessment and status-update states.
+Empty State
+No loan applications: show a clear empty state.
+Error State
+Calculator/AI/application-service failure must be distinct and recoverable.
+Success State
+Application is submitted and receives a trackable status.
+Confirmation
+Application submission requires a review/submit step; exact confirmation copy is TBD.
+Notifications
+Submission and loan decision notifications where supported; channels TBD.
+Permissions
+Customer: View/Create/Submit; Loan Officer: View/Review/Final Decision; Branch Admin: View/Approve/Reject as defined. Exact extra permissions TBD.
+Business Rules
+AI eligibility is advisory/pre-assessment only.
+Loan Officer owns final decision.
+Eligibility criteria, maximum amount, rate source and required KYC/document details are TBD.
+EMI behavior must reflect the selected calculator experience.
+Dependencies
+Loan data; EMI calculator; AI Loan Eligibility; Authentication; Branch Admin workflow.
+Audit
+Loan submission, AI assessment, officer decision and branch approval/rejection should be auditable.
+Acceptance Criteria
+AC-06-01: Given valid loan application data, then the application can be submitted.
+AC-06-02: Given slider changes, then the EMI result updates according to calculator behavior.
+AC-06-03: Given AI pre-assessment output, then it is labeled advisory.
+AC-06-04: Given a submitted application, the Loan Officer can make the final decision.
+Open Questions
+Loan eligibility criteria – TBD.
+Maximum loan amount – TBD.
+Interest-rate source – TBD.
+KYC/document requirements – TBD.
+Exact Branch Admin involvement – TBD.
+11.6.1 Loan Product Journey
+Loan Selection → Loan Application → EMI Calculator → KYC → AI Pre-Assessment → Application Submission → Loan Officer Review → Approve / Reject. The exact inclusion/order of optional KYC and AI steps is confirmed at business-process level but final screen orchestration remains a product decision where not explicit.
+Critical Product Rule: AI provides a pre-assessment only. The Loan Officer owns the final loan decision.
+BNK-FR-07 – Session Timeout and Virtual Keyboard
+Module: Security
+BRD Traceability: BNK-FR-07
+TR Traceability: TR-05, TR-01 L4
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Protect user sessions from unattended use and provide the specified password-entry interaction.
+User Problem
+Unattended sessions can expose banking information; the product must force a timeout after the confirmed inactivity period.
+Product Behavior
+The product tracks inactivity, shows the timeout popup after five minutes, allows the defined continuation/logout path, prevents protected access after expiry, and provides a virtual keyboard on the password field.
+Entry Point
+Authenticated session; Login password field
+User / Roles
+Authenticated user; staff applicability TBD.
+Screen / UI Requirements
+Session timeout popup.
+Continue session action.
+Logout action.
+Session-expired state.
+Login password field with virtual keyboard.
+User Actions
+Remain inactive.
+Respond to timeout popup.
+Continue or logout.
+Enter password through virtual keyboard where applicable.
+Data Display Requirements
+Idle duration
+Session state
+Password input
+Validation
+Expired session must not permit protected actions.
+Password is sensitive.
+Virtual keyboard interaction must not reveal password in plain text.
+Loading State
+Not applicable for timeout itself; authentication loading states should be clear.
+Empty State
+Not applicable.
+Error State
+Expired/invalid session should show clear re-authentication guidance.
+Success State
+Session continues when permitted or user returns to authentication after expiry.
+Confirmation
+Timeout popup provides an explicit continue/logout choice where supported.
+Notifications
+Timeout popup and session-expired message.
+Permissions
+Applies to the relevant authenticated portal users; staff applicability TBD.
+Business Rules
+Five minutes of inactivity is confirmed.
+Protected areas require a valid session.
+Exact timeout warning countdown and multi-tab behavior are TBD.
+No unsupported security standard is assumed.
+Dependencies
+Authentication; Session management.
+Audit
+Login, logout and session-expiry events should be auditable where required.
+Acceptance Criteria
+AC-07-01: Given five minutes of inactivity, then the timeout popup is displayed.
+AC-07-02: Given an expired session, then protected access requires authentication.
+AC-07-03: Given password entry, then the virtual keyboard is available.
+Open Questions
+Exact warning/redirect semantics – TBD.
+Unsaved-information behavior on expiry – TBD.
+Staff-session applicability – TBD.
+Confirmed Product Rule: Idle timeout threshold is 5 minutes. Do not extend or shorten this value without an approved requirement change.
+BNK-FR-08 – Account and Loan Approval
+Module: Branch Admin
+BRD Traceability: BNK-FR-08
+TR Traceability: TR-07
+Requirement Classification: Confirmed Requirement – translated from the approved BRD.
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+Feature Objective
+Provide Branch Admin users with a controlled review and decision experience for pending accounts and loans.
+User Problem
+Branch operations need a clear approval path that records decisions and prevents unauthorized changes.
+Product Behavior
+Authorized Branch Admin users access pending accounts and loans, review the record, approve or reject, provide a reason/comment where required, and receive a clear final status.
+Entry Point
+Branch Admin Login → Admin Dashboard
+User / Roles
+Branch Admin.
+Screen / UI Requirements
+Admin authentication entry.
+Pending accounts list.
+Pending loans list.
+Approval detail view.
+Approve and Reject actions.
+Reason/comment input where required.
+Decision confirmation and status.
+User Actions
+Authenticate.
+Open pending items.
+Select a record.
+Review details.
+Approve/reject.
+Provide reason/comment where required.
+Confirm decision.
+View updated status.
+Data Display Requirements
+Record ID
+Record type
+Review information
+Decision
+Reason/comment where applicable
+Status
+Validation
+User must have Branch Admin access.
+Record must be in an eligible pending state.
+Decision must be approve or reject.
+Rejection reason requirement is TBD if not confirmed.
+Loading State
+Show authentication/review/decision-processing states.
+Empty State
+If no pending records exist, show an empty state.
+Error State
+Unauthorized access, stale record, service failure or invalid decision should be distinguishable.
+Success State
+Approved/rejected status is displayed after successful decision.
+Confirmation
+Decision confirmation may be used; exact requirement is TBD.
+Notifications
+Approval/rejection confirmation and affected-user notifications where supported; channels TBD.
+Permissions
+Branch Admin: View/Approve/Reject specified records. Additional permissions TBD.
+Business Rules
+Only authorized Branch Admin users may approve/reject specified records.
+Only relevant pending records can be actioned.
+Exact meaning/implementation of 'Basic Auth' is TBD.
+Conflict handling for already-actioned records is TBD.
+Dependencies
+Branch Admin authentication; Account data; Loan data; Notifications.
+Audit
+Admin authentication, review, decision, reason/comment and status change should be auditable.
+Acceptance Criteria
+AC-08-01: Given an authorized Branch Admin and a pending record, then the record can be reviewed and actioned.
+AC-08-02: Given approval, then status changes to approved.
+AC-08-03: Given rejection and required reason, then status changes to rejected.
+AC-08-04: Given unauthorized access, then the admin area is inaccessible.
+Open Questions
+Authentication mechanism – TBD – Business Decision Required.
+Conflict/concurrency handling – TBD.
+Exact Branch Admin scope across accounts/loans – TBD.
+TBD: The exact authentication mechanism represented by 'Basic Auth' must be confirmed. Do not turn the phrase into a technical implementation commitment.
+12. AI Product Features
+AI features are treated as first-class product capabilities. Their output must be presented in a way that preserves human oversight, avoids unsupported claims and respects the product constraint that AI cannot independently perform financial transactions.
+BNK-AI-01 – Transaction Fraud Risk Assessment
+Module: Fraud Detection
+BRD Traceability: BNK-AI-01
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+AI Objective
+Identify potentially risky simulated transactions before completion and provide a product control point for additional confirmation.
+User Problem
+The product needs a fraud-risk signal that can interrupt or hold a simulated transfer when the transaction is assessed as high risk.
+Product Behavior
+Each eligible simulated transaction receives a fraud-risk assessment. High-risk transactions are held and require additional confirmation. Exact score thresholds/categories are TBD.
+Entry Point
+Fund Transfer → Fraud Risk Assessment
+User / Roles
+Customer; reviewer/human-handling role TBD.
+User Interaction
+Review risk message.
+Complete additional confirmation.
+Proceed or cancel according to allowed journey.
+Screen / UI Requirements
+Risk indicator/state.
+High-risk warning/hold state.
+Additional confirmation experience.
+Proceed/cancel outcome.
+AI limitation/explanation copy where supported.
+AI Input / Product Data
+Transaction information
+Available customer/account context
+Historical transaction information where approved
+Product Rules
+Every eligible transaction is assessed.
+High-risk transactions are held for additional confirmation.
+AI never independently executes money movement.
+Exact risk score ranges and categories are TBD.
+AI-unavailable fallback is TBD.
+Confidence / Uncertainty
+Exact confidence representation, thresholds and decision rules are TBD where not defined by the BRD. The product must not imply certainty that the source requirements do not support.
+Explainability
+Where an AI output is presented to a user, the product should provide understandable context or reasons to the extent supported by the capability. This is a product expectation; exact wording is TBD.
+Human Oversight
+High-risk outcomes require additional confirmation. Human override role/workflow is TBD.
+Failure / Fallback
+If AI is unavailable, apply the approved fallback; exact fallback is TBD.
+Loading State
+Show an assessment-in-progress state before presenting the risk outcome.
+Empty State
+Not applicable; if there is no eligible assessment context, the transfer flow must not fabricate a risk result.
+Error State
+If AI is unavailable, apply the approved fallback; exact fallback is TBD.
+Success State
+Risk outcome is presented and the transfer follows the approved next step.
+Privacy
+AI features use sensitive banking/customer/KYC information where applicable. The exact retention policy is TBD. Product behavior must avoid exposing data outside the user's authorization.
+Auditability
+Assessment, risk outcome, resulting action and any human intervention should be auditable.
+Product Limitations
+Model choice, thresholds, feature engineering and infrastructure are outside this PRD. Unsupported capabilities must not be implied by the UI.
+Acceptance Criteria
+AC-AI01-01: Given an eligible simulated transaction, when fraud assessment is available, then a fraud-risk assessment is produced.
+AC-AI01-02: Given a high-risk assessment, then the transaction is held and additional confirmation is required.
+AC-AI01-03: AI never directly executes a transfer.
+Open Questions
+Risk thresholds/categories – TBD.
+AI confidence treatment – TBD.
+AI unavailable behavior – TBD.
+Human override role and workflow – TBD.
+BNK-AI-02 – Transaction Categorization and Monthly Spending Explanation
+Module: Spend Insights
+BRD Traceability: BNK-AI-02
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+AI Objective
+Help customers understand monthly spending through category-level information and plain-language explanations.
+User Problem
+Raw transactions require interpretation; customers need a simple view of where spending is occurring.
+Product Behavior
+The product groups transactions into categories such as Food, Travel and Bills, provides category totals and explains monthly spending in plain language. Actual transaction data and AI-generated explanation must be distinguishable.
+Entry Point
+Dashboard → Spend Insights
+User / Roles
+Customer.
+User Interaction
+Choose month/period where supported.
+Review category totals.
+Read explanation.
+Review uncategorised transactions.
+Correct categorization only if product decision supports it.
+Screen / UI Requirements
+Monthly spending summary.
+Category breakdown.
+Food, Travel, Bills category views where applicable.
+Trend/explanation area.
+Uncategorised transaction state.
+Correction action only if later supported.
+AI Input / Product Data
+Transaction date
+Transaction amount
+Transaction description/context
+Assigned category
+Monthly aggregate
+Product Rules
+AI-generated explanation must be grounded in transaction data.
+Uncategorised transactions must not be assigned unsupported categories.
+User correction is TBD.
+Category list beyond supplied examples is TBD.
+Confidence / Uncertainty
+Exact confidence representation, thresholds and decision rules are TBD where not defined by the BRD. The product must not imply certainty that the source requirements do not support.
+Explainability
+Where an AI output is presented to a user, the product should provide understandable context or reasons to the extent supported by the capability. This is a product expectation; exact wording is TBD.
+Human Oversight
+Human oversight applies to exception/review situations as defined in the BRD and TBD decisions. The AI is not granted independent financial authority.
+Failure / Fallback
+AI unavailable should not fabricate spending explanations; raw transaction access may remain available.
+Loading State
+Show categorization and insight generation state.
+Empty State
+No spending data: show a clear empty state rather than a fabricated insight.
+Error State
+AI unavailable should not fabricate spending explanations; raw transaction access may remain available.
+Success State
+Category totals and plain-language explanation are shown.
+Privacy
+AI features use sensitive banking/customer/KYC information where applicable. The exact retention policy is TBD. Product behavior must avoid exposing data outside the user's authorization.
+Auditability
+Material AI categorization/insight events may be auditable; exact scope TBD.
+Product Limitations
+Model choice, thresholds, feature engineering and infrastructure are outside this PRD. Unsupported capabilities must not be implied by the UI.
+Acceptance Criteria
+AC-AI02-01: Given eligible transactions, then categories are assigned where possible.
+AC-AI02-02: Monthly category totals are presented.
+AC-AI02-03: The explanation is grounded in available transaction data.
+Open Questions
+Exact category list – TBD.
+User correction behavior – TBD.
+Trend definitions – TBD.
+Confidence presentation – TBD.
+BNK-AI-03 – AI Loan Eligibility Pre-Assessment
+Module: Loan Eligibility
+BRD Traceability: BNK-AI-03
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+AI Objective
+Provide an advisory indication of potential loan eligibility and a suggested amount with reasons.
+User Problem
+Customers and Loan Officers can benefit from an early indication before the final human review.
+Product Behavior
+AI evaluates approved application information and returns an advisory pre-assessment, suggested amount and reasons. The product must clearly communicate that the output is indicative only. The Loan Officer owns the final decision.
+Entry Point
+Loan Application → AI Pre-Assessment
+User / Roles
+Customer; Loan Officer.
+User Interaction
+Request/view pre-assessment.
+Review reasons and suggested amount.
+Proceed to application submission/review.
+Loan Officer reviews and may override or reject.
+Screen / UI Requirements
+Advisory label.
+Eligibility result.
+Suggested amount.
+Reasons.
+Disclaimer that output is pre-assessment only.
+Officer review context.
+AI unavailable state.
+AI Input / Product Data
+Applicant/application information
+Requested amount
+Tenure and other approved criteria
+Product Rules
+AI output is not final approval/rejection.
+Loan Officer owns final decision.
+AI cannot independently approve/reject.
+Eligibility criteria and thresholds are TBD.
+Confidence / Uncertainty
+Exact confidence representation, thresholds and decision rules are TBD where not defined by the BRD. The product must not imply certainty that the source requirements do not support.
+Explainability
+Where an AI output is presented to a user, the product should provide understandable context or reasons to the extent supported by the capability. This is a product expectation; exact wording is TBD.
+Human Oversight
+Mandatory Rule: AI provides a pre-assessment only. AI must not make the final loan approval/rejection decision; the Loan Officer owns the final decision.
+Failure / Fallback
+AI unavailable: follow approved non-AI path; exact fallback TBD.
+Loading State
+Show assessment in progress.
+Empty State
+If insufficient information exists, show that assessment cannot be produced rather than inventing one.
+Error State
+AI unavailable: follow approved non-AI path; exact fallback TBD.
+Success State
+Advisory result is shown with reasons and clear disclaimer.
+Privacy
+AI features use sensitive banking/customer/KYC information where applicable. The exact retention policy is TBD. Product behavior must avoid exposing data outside the user's authorization.
+Auditability
+AI assessment and final human decision must be separately auditable.
+Product Limitations
+Model choice, thresholds, feature engineering and infrastructure are outside this PRD. Unsupported capabilities must not be implied by the UI.
+Acceptance Criteria
+AC-AI03-01: Given sufficient loan data, then AI returns an advisory pre-assessment.
+AC-AI03-02: Suggested amount/reasons are labeled advisory.
+AC-AI03-03: Loan Officer remains final decision maker.
+AC-AI03-04: AI cannot independently approve or reject.
+Open Questions
+Exact eligibility criteria – TBD.
+AI confidence/uncertainty display – TBD.
+Human override workflow – TBD.
+BNK-AI-04 – KYC Information Extraction and Mismatch Detection
+Module: KYC Document Check
+BRD Traceability: BNK-AI-04
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+AI Objective
+Reduce manual KYC data extraction effort by extracting name, DOB and ID number and flagging mismatches.
+User Problem
+Manual document review can require repetitive extraction and comparison of customer information.
+Product Behavior
+Customer uploads a KYC document. The product validates the upload, processes the document, extracts name/DOB/ID number, compares these with customer information and flags mismatches for appropriate review. Supported document types remain TBD.
+Entry Point
+Loan/KYC journey → Upload Document
+User / Roles
+Customer; manual reviewer TBD.
+User Interaction
+Upload document.
+Wait for processing.
+Review extracted information.
+Review match/mismatch result.
+Retry or route to manual review if needed.
+Screen / UI Requirements
+Upload area.
+File validation message.
+Processing state.
+Extracted information view.
+Match/mismatch result.
+Manual review/retry state.
+AI Input / Product Data
+Uploaded KYC document
+Extracted name
+Extracted DOB
+Extracted ID number
+Customer record values
+Mismatch state
+Confidence/uncertainty if available
+Product Rules
+Do not assume specific document types.
+Extraction output must not silently overwrite authoritative customer data.
+Mismatch or uncertainty should lead to review rather than silent acceptance.
+Retention period is TBD.
+Confidence / Uncertainty
+Exact confidence representation, thresholds and decision rules are TBD where not defined by the BRD. The product must not imply certainty that the source requirements do not support.
+Explainability
+Where an AI output is presented to a user, the product should provide understandable context or reasons to the extent supported by the capability. This is a product expectation; exact wording is TBD.
+Human Oversight
+Human oversight applies to exception/review situations as defined in the BRD and TBD decisions. The AI is not granted independent financial authority.
+Failure / Fallback
+Invalid, poor-quality or failed processing should provide retry/manual-review guidance.
+Loading State
+Show processing/extraction progress.
+Empty State
+No document uploaded: show upload guidance.
+Error State
+Invalid, poor-quality or failed processing should provide retry/manual-review guidance.
+Success State
+Extracted information and comparison result are shown.
+Privacy
+AI features use sensitive banking/customer/KYC information where applicable. The exact retention policy is TBD. Product behavior must avoid exposing data outside the user's authorization.
+Auditability
+Upload, extraction result, mismatch and review outcome should be auditable.
+Product Limitations
+Model choice, thresholds, feature engineering and infrastructure are outside this PRD. Unsupported capabilities must not be implied by the UI.
+Acceptance Criteria
+AC-AI04-01: Given an accepted upload, name/DOB/ID extraction is attempted.
+AC-AI04-02: Extracted values are compared with customer records.
+AC-AI04-03: Mismatches are flagged.
+AC-AI04-04: Failed/poor-quality extraction does not fabricate values.
+Open Questions
+Supported document types – TBD.
+Confidence threshold – TBD.
+Manual-review role/process – TBD.
+Data retention – TBD.
+BNK-AI-05 – Read-Only Banking Assistant
+Module: Banking Assistant
+BRD Traceability: BNK-AI-05
+Priority: TBD – Product Owner Decision Required
+Release: TBD – Product Owner Decision Required
+AI Objective
+Provide conversational access to selected banking information without becoming a transaction channel.
+User Problem
+Customers need quick answers to common banking questions without navigating multiple screens.
+Product Behavior
+The assistant answers balance, last-transaction and FD-rate queries using authorized data. It must never initiate, execute, approve or confirm transfers. Unsupported or unreliable questions must not result in fabricated answers.
+Entry Point
+Dashboard → Banking Assistant
+User / Roles
+Customer.
+User Interaction
+Open assistant.
+Ask supported question.
+Review answer.
+Ask follow-up supported query.
+Use dedicated banking screen for prohibited transaction actions.
+Screen / UI Requirements
+Chat interface.
+Suggested questions.
+Message history for the active interaction as permitted.
+Loading state.
+Error/unsupported question state.
+Read-only limitation messaging.
+AI Input / Product Data
+Customer/account context
+Account balance
+Recent transactions
+FD rates
+Product Rules
+Assistant is read-only.
+Assistant cannot initiate, execute, approve or confirm transfers.
+Only supported banking questions are answered.
+No unsupported/fabricated responses.
+Confidence / Uncertainty
+Exact confidence representation, thresholds and decision rules are TBD where not defined by the BRD. The product must not imply certainty that the source requirements do not support.
+Explainability
+Where an AI output is presented to a user, the product should provide understandable context or reasons to the extent supported by the capability. This is a product expectation; exact wording is TBD.
+Human Oversight
+Human oversight applies to exception/review situations as defined in the BRD and TBD decisions. The AI is not granted independent financial authority.
+Failure / Fallback
+Assistant unavailable or data unavailable: show a clear limitation and direct user to the relevant banking screen/support.
+Loading State
+Show response generation/retrieval state without suggesting that a transaction is executing.
+Empty State
+No conversation yet: show supported question suggestions.
+Error State
+Assistant unavailable or data unavailable: show a clear limitation and direct user to the relevant banking screen/support.
+Success State
+A grounded read-only answer is displayed.
+Privacy
+AI features use sensitive banking/customer/KYC information where applicable. The exact retention policy is TBD. Product behavior must avoid exposing data outside the user's authorization.
+Auditability
+Assistant access/material banking-data queries may be auditable; exact scope TBD.
+Product Limitations
+Model choice, thresholds, feature engineering and infrastructure are outside this PRD. Unsupported capabilities must not be implied by the UI.
+Acceptance Criteria
+AC-AI05-01: Supported balance queries return authorized data.
+AC-AI05-02: Supported last-transaction queries return authorized data.
+AC-AI05-03: Supported FD-rate queries return configured data.
+AC-AI05-04: Transfer instructions are refused and never executed, initiated, approved or confirmed.
+AC-AI05-05: Unsupported/unreliable questions do not produce fabricated answers.
+Open Questions
+Banking Assistant authentication behavior – TBD.
+FD rate data source – TBD.
+Escalation path – TBD.
+Low-confidence behavior – TBD.
+13. Business Rules
+Rules are carried forward from the approved BRD. Where the BRD marks an item as TBD, this PRD preserves it rather than resolving it.
+Rule ID
+Module
+Business Rule
+Source
+Status
+BR-001
+Authentication
+Authentication is required for customer banking functionality.
+Cross-module / Security
+Confirmed
+BR-002
+All Modules
+Authorization is based on user role.
+Cross-module
+Confirmed
+BR-003
+Beneficiaries
+Inactive beneficiaries cannot be used for transfers.
+BNK-FR-02 / BNK-FR-03
+Confirmed
+BR-004
+Fund Transfer
+Transfer flow requires confirmation followed by OTP.
+BNK-FR-03
+Confirmed
+BR-005
+Fraud
+High-risk transactions are held and require additional confirmation.
+BNK-AI-01
+Confirmed
+BR-006
+Scheduled Transfers
+Scheduled transfers must respect date validation.
+BNK-FR-04
+Confirmed
+BR-007
+Loans
+AI loan eligibility is advisory/pre-assessment only.
+BNK-FR-06 / BNK-AI-03
+Confirmed
+BR-008
+Loans
+Loan Officer makes the final loan decision.
+BNK-FR-06 / BNK-AI-03
+Confirmed
+BR-009
+Banking Assistant
+Assistant cannot initiate, execute, approve or confirm transfers.
+BNK-AI-05
+Confirmed
+BR-010
+Simulation
+All money movement is simulated.
+Project Constraint
+Confirmed
+BR-011
+Beneficiaries
+Cooling period duration.
+BNK-FR-02
+TBD
+BR-012
+Fund Transfer
+Transaction limits.
+BNK-FR-03
+TBD
+BR-013
+OTP
+Expiry and retry rules.
+BNK-FR-03
+TBD
+BR-014
+Fraud
+Risk thresholds/categories.
+BNK-AI-01
+TBD
+BR-015
+Scheduled Transfers
+Supported recurrence options.
+BNK-FR-04
+TBD
+BR-016
+Branch Admin
+Meaning/implementation of 'Basic Auth'.
+BNK-FR-08
+TBD
+14. Validation Requirements
+The validation baseline below contains only validations supported by the BRD or directly required to enforce its confirmed behavior. Unspecified field constraints remain TBD.
+Validation ID
+Module
+Field/Action
+Validation
+Expected Result
+Status
+VAL-001
+Accounts
+Account access
+User must be authorized for the requested account.
+Unauthorized account access is blocked.
+Confirmed
+VAL-002
+Beneficiaries
+Confirm account number
+Must match account number.
+Submission is blocked with field guidance.
+Confirmed
+VAL-003
+Beneficiaries
+IFSC
+Must pass configured lookup/validation.
+Invalid IFSC is rejected.
+Confirmed
+VAL-004
+Beneficiaries
+Duplicate
+Duplicate condition must be checked.
+Unintended duplicate creation is prevented.
+Confirmed
+VAL-005
+Fund Transfer
+Destination
+Valid for selected transfer type; beneficiary active where applicable.
+Transfer cannot continue with invalid/inactive destination.
+Confirmed
+VAL-006
+Fund Transfer
+Amount
+Must satisfy configured business/balance rules.
+Invalid amount is rejected.
+Confirmed; exact limits TBD
+VAL-007
+Fund Transfer
+OTP
+Must be valid and unexpired.
+Transfer does not complete on failure.
+Confirmed; exact policy TBD
+VAL-008
+Scheduled Transfers
+Date
+Must satisfy future-date rule.
+Invalid past-date schedule is blocked.
+Confirmed
+VAL-009
+Statements
+Date range
+From date cannot be after To date.
+Generation is blocked.
+Confirmed
+VAL-010
+Loans
+Application
+Required application information must be complete.
+Submission is blocked until complete.
+Confirmed at business level
+VAL-011
+Loans
+Amount/Tenure
+Must comply with approved business limits once defined.
+Invalid values are blocked.
+TBD
+VAL-012
+Security
+Session
+Protected actions require valid session.
+Expired session requires authentication.
+Confirmed
+VAL-013
+Branch Admin
+Record status
+Only eligible pending records may be actioned.
+Invalid/stale records are blocked.
+Confirmed
+VAL-014
+KYC Check
+Document processability
+Input must be processable.
+Retry/manual review state shown.
+Confirmed
+VAL-015
+Banking Assistant
+Transfer request
+Transfer intent is prohibited.
+Assistant refuses and redirects to dedicated transfer feature.
+Confirmed
+15. Business Process Flows
+The following product-level flows translate the approved business process into observable user/product behavior.
+Journey ID
+Process
+Product Flow
+Outcome / Notes
+UJ-01
+Customer Login
+Open login → enter credentials → submit → validate → authenticated dashboard or error
+Success / Failure: If idle after login, five-minute timeout behavior applies.
+UJ-02
+View Account
+Open Accounts → review list/cards → select account → browse tabs → view status/balance
+Success / Failure: No accounts produces empty state.
+UJ-03
+Add Beneficiary
+Open Beneficiaries → Add → enter details → IFSC lookup/autosuggest → validate → submit → pending
+Success / Failure: Duplicate/invalid entries are blocked.
+UJ-04
+Activate Beneficiary
+Pending beneficiary → wait/meet activation condition → status becomes Active
+Success / Failure: Cooling duration is TBD.
+UJ-05
+Own Account Transfer
+Select own-account transfer → source/destination → amount → validation → confirmation → OTP → fraud assessment/handling → result
+Success / Failure: All movement is simulated.
+UJ-06
+Other Bank Transfer
+Select other-bank transfer → choose active beneficiary → amount → validation → confirmation → OTP → fraud assessment/handling → result
+Success / Failure: Inactive beneficiaries cannot be used.
+UJ-07
+Mock UPI Transfer
+Select mock UPI → enter/select simulated destination → amount → validation → confirmation → OTP → fraud assessment/handling → result
+Success / Failure: No real UPI processing.
+UJ-08
+High-Risk Transfer
+Transfer → risk assessment → high risk → hold → additional confirmation → proceed/cancel
+Success / Failure: Exact human override/fallback is TBD.
+UJ-09
+Scheduled Transfer
+Open schedules → create → destination/amount/date/frequency → validate → confirm → status
+Success / Failure: Recurrence options TBD.
+UJ-10
+Generate Statement
+Select account → dates → generate → open new tab
+Success / Failure: Date rules apply.
+UJ-11
+Download Statement
+Generate statement → open new tab → download PDF
+Success / Failure: Large-statement behavior TBD.
+UJ-12
+Loan Application
+Select product → enter info → use EMI calculator → optional AI assessment → review → submit → track status
+Success / Failure: Final decision remains human.
+UJ-13
+EMI Calculation
+Adjust sliders → calculator refreshes result
+Success / Failure: Exact calculation source/limits TBD.
+UJ-14
+AI Loan Pre-Assessment
+Run/view AI assessment → see suggested amount/reasons → read advisory disclaimer → proceed to human review
+Success / Failure: AI cannot approve/reject.
+UJ-15
+Loan Officer Decision
+Open pending application → review → decide approve/reject → status recorded
+Success / Failure: Officer owns final decision.
+UJ-16
+KYC Document Upload
+Open upload → choose file → validate → processing → extracted information/result
+Success / Failure: Supported document types TBD.
+UJ-17
+KYC Mismatch
+View mismatch → review extracted vs customer information → retry/manual review
+Success / Failure: Manual-review workflow TBD.
+UJ-18
+Spend Insights
+Open insights → choose/view month → see categories/totals → read explanation → review uncategorised data
+Success / Failure: Explanation is AI-generated and grounded in actual data.
+UJ-19
+Banking Assistant
+Open assistant → ask supported question → retrieve authorized data → answer
+Success / Failure: Transfer requests are refused.
+UJ-20
+Branch Admin Account Approval
+Admin login → pending accounts → detail → approve/reject → confirmation → status
+Success / Failure: Exact authentication mechanism TBD.
+UJ-21
+Branch Admin Loan Approval
+Admin login → pending loans → detail → approve/reject → confirmation → status
+Success / Failure: Exact scope beyond specified approvals TBD.
+UJ-22
+Session Timeout
+Inactivity reaches 5 minutes → timeout popup → continue or logout → if expired, authenticate again
+Success / Failure: Unsaved-information behavior TBD.
+16. UI/UX Business Requirements
+This section defines required product screens and behavior without prescribing implementation code.
+Screen ID
+Module
+Screen
+Purpose
+Major Information / Actions
+SCR-01
+Security
+Login
+Authenticate user
+Credentials; password field; virtual keyboard; validation; submit
+SCR-02
+Home
+Dashboard
+Provide banking entry point
+Account summary entry points; navigation to core features
+SCR-03
+Accounts
+Accounts
+List authorized accounts
+Account cards/list; type; balance; status
+SCR-04
+Accounts
+Account Details
+View selected account
+Tabs; account information; FD-specific view
+SCR-05
+Beneficiaries
+Beneficiary List
+Manage destinations
+List; statuses; add action
+SCR-06
+Beneficiaries
+Add Beneficiary
+Create beneficiary
+Form; IFSC lookup/autosuggest; validation
+SCR-07
+Fund Transfer
+Transfer
+Initiate simulated transfer
+Transfer type; source; destination; amount; remarks
+SCR-08
+Fund Transfer
+Transfer Confirmation
+Review transfer
+Summary; confirm/cancel
+SCR-09
+Fund Transfer
+OTP Modal
+Verify transfer
+OTP input; validation; expiry/retry state
+SCR-10
+Fund Transfer
+Transfer Result
+Show final outcome
+Success/failure/hold; reference; status
+SCR-11
+Scheduled Transfers
+Schedule Transfer
+Create/manage schedules
+Date picker; recurrence; status; actions
+SCR-12
+Statements
+Statements
+Generate/view statements
+Account; date range; generate
+SCR-13
+Statements
+Statement View
+View/download PDF statement
+New-tab view; download
+SCR-14
+Loans
+Loan Application
+Submit loan request
+Product; application information; sliders
+SCR-15
+Loans
+EMI Calculator
+Estimate EMI
+Iframe calculator; slider inputs
+SCR-16
+Loans
+Loan Status
+Track application
+Application status; decision outcome
+SCR-17
+Branch Admin
+Admin Dashboard
+Review pending approvals
+Pending accounts/loans; navigation
+SCR-18
+Branch Admin
+Account Approval
+Decide account request
+Review details; approve/reject; reason where required
+SCR-19
+Branch Admin
+Loan Approval
+Decide loan request
+Review details; approve/reject; reason where required
+SCR-20
+AI Fraud
+Fraud Alert
+Handle high-risk transfer
+Risk state; hold; additional confirmation
+SCR-21
+AI Spend
+Spend Insights
+Understand spending
+Monthly summary; categories; explanation
+SCR-22
+AI Loan
+AI Assessment
+Show advisory result
+Eligibility result; amount; reasons; disclaimer
+SCR-23
+AI KYC
+KYC Upload
+Upload KYC document
+Upload; validation; processing
+SCR-24
+AI KYC
+KYC Result
+Show extraction/comparison
+Extracted fields; match/mismatch; review/retry
+SCR-25
+AI Assistant
+Banking Assistant
+Ask supported banking queries
+Chat; suggestions; responses; read-only restriction
+SCR-26
+Security
+Session Timeout
+Handle idle session
+Popup; continue/logout; expiry
+17. Component / UI Behavior Requirements
+The PRD defines component behavior where it directly affects the product experience. It does not prescribe frontend implementation.
+Component
+Purpose
+Product Behavior
+Forms
+Capture product inputs
+Required-field validation; clear error placement; disabled submit when required data is invalid/absent; loading and success states
+Dropdowns
+Select configured options
+Display available options only; preserve selected value; empty/disabled state when options unavailable
+Date Pickers
+Select statement/schedule dates
+Prevent prohibited dates per confirmed rules; show clear validation; recurrence behavior TBD
+Sliders
+Adjust loan amount/tenure
+Update displayed EMI according to calculator behavior; exact range/step values TBD
+Tabs
+Organize account details
+Preserve selected account context; clearly identify active tab
+Modals
+Show focused actions
+Confirmation dialogs must make the consequence clear; cancel must not unintentionally complete the action
+Tables/Lists
+Present accounts, beneficiaries, approvals
+Show loading/empty/error states; status must be readable
+Cards
+Summarize accounts/features
+Show key business information without exposing unauthorized data
+Alerts/Toasts
+Communicate outcome
+Differentiate validation, warning, success and error messages
+OTP Inputs
+Verify transfer
+Clear state for invalid/expired OTP; retry behavior follows TBD rules
+File Uploads
+Collect KYC document
+Validate processability; show upload/processing/failure states
+Chat Interface
+Support read-only banking assistant
+Show loading, response, unsupported question and prohibited transfer behavior
+18. Error States
+Error ID
+Module
+Scenario
+User Impact
+Product Behavior
+Proposed Message
+ERR-001
+Accounts
+Account retrieval unavailable
+Account information cannot be confirmed
+Show error state; retry
+Account information is currently unavailable.
+ERR-002
+Beneficiaries
+Invalid beneficiary details
+Cannot create beneficiary
+Field-level guidance
+Please correct the beneficiary details.
+ERR-003
+Beneficiaries
+Duplicate beneficiary
+Unintended duplicate risk
+Block creation; show existing match where supported
+This beneficiary already exists.
+ERR-004
+Fund Transfer
+Inactive beneficiary
+Destination not eligible
+Block transfer
+This beneficiary is not active yet.
+ERR-005
+Fund Transfer
+Invalid amount/balance rule
+Transfer cannot proceed
+Block continuation
+Enter a valid transfer amount.
+ERR-006
+Fund Transfer
+Invalid/expired OTP
+Verification failed
+Do not complete transfer; apply approved retry/expiry rules
+The OTP is invalid or expired.
+ERR-007
+Fund Transfer
+Transfer service failure
+Transfer outcome uncertain
+Do not claim success; show recovery state
+Transfer could not be completed.
+ERR-008
+Fraud
+High-risk assessment
+Transfer is held
+Show hold + additional confirmation
+This transaction requires additional confirmation.
+ERR-009
+Schedule
+Invalid date
+Schedule invalid
+Block submission
+Select a valid future date.
+ERR-010
+Statements
+Generation failure
+Statement unavailable
+Show recoverable error
+Statement could not be generated.
+ERR-011
+Loans
+EMI calculator unavailable
+EMI cannot be shown reliably
+Show calculator failure; do not fabricate
+EMI calculator is currently unavailable.
+ERR-012
+Loans
+AI assessment unavailable
+No AI advice available
+Use approved non-AI path; exact behavior TBD
+AI assessment is unavailable.
+ERR-013
+Security
+Session expired
+Protected access denied
+Require authentication
+Your session has expired. Please sign in again.
+ERR-014
+Branch Admin
+Unauthorized admin access
+Approval area unavailable
+Deny access
+You are not authorized to access this area.
+ERR-015
+KYC
+Poor-quality/failed extraction
+Verification incomplete
+Retry/manual review
+Document could not be processed. Please retry or use manual review.
+ERR-016
+Assistant
+Unsupported question/data unavailable
+Assistant cannot answer reliably
+Do not fabricate; direct to supported screen/support
+I can't answer that with the available information.
+ERR-017
+Assistant
+Transfer instruction
+Prohibited transaction action
+Refuse and direct user to Fund Transfer
+The banking assistant cannot perform transfers.
+19. Empty States
+ID
+Module
+Scenario
+User Impact
+Expected Product Behavior
+EM-001
+Accounts
+No accounts
+No accessible accounts available
+Explain that no accounts are currently available; avoid implying data is missing if source says none
+EM-002
+Beneficiaries
+No beneficiaries
+No destinations configured
+Show Add Beneficiary action
+EM-003
+Statements
+No transactions for range
+Nothing to show for selected range
+Show empty result and preserve selected filters
+EM-004
+Scheduled Transfers
+No schedules
+No scheduled transfers
+Show Create Schedule action
+EM-005
+Loans
+No loan applications
+No applications exist
+Show Apply for Loan action
+EM-006
+Branch Admin
+No pending approvals
+Nothing requires action
+Show clear no-pending-items state
+EM-007
+Spend Insights
+No spending data
+No meaningful insight can be generated
+Show empty state without AI-fabricated explanation
+EM-008
+Banking Assistant
+No conversation yet
+User has not asked a question
+Show supported question suggestions
+20. Loading States
+ID
+Module
+Loading Point
+Expected Product Behavior
+LO-001
+Accounts
+Account retrieval
+Show account loading indicator; prevent misleading partial state
+LO-002
+Beneficiaries
+IFSC lookup/validation
+Show lookup progress; prevent duplicate submission
+LO-003
+Fund Transfer
+Validation/OTP/fraud/result
+Show processing state; keep user informed; do not imply completion before confirmed result
+LO-004
+Statements
+Generation
+Show statement-generation progress
+LO-005
+Loans
+EMI/AI/application submission
+Show calculator/AI/submission progress
+LO-006
+KYC
+Document processing
+Show processing state and eventual result/manual-review outcome
+LO-007
+Banking Assistant
+Response retrieval/generation
+Show assistant loading without suggesting a transaction is executing
+LO-008
+Branch Admin
+Decision processing
+Show action-in-progress state and prevent duplicate decision submission
+21. Notification Requirements
+Notification ID
+Event
+Recipient
+Purpose
+Product Expectation
+Channel
+Status
+NOT-001
+Beneficiary
+Creation/pending status
+Customer
+Beneficiary status is communicated
+TBD
+TBD
+NOT-002
+Beneficiary
+Activation
+Customer
+Activation outcome communicated
+TBD
+TBD
+NOT-003
+Transfer
+OTP request
+Customer
+OTP step is presented
+In-app / TBD
+Confirmed step; channel TBD
+NOT-004
+Transfer
+Success
+Customer
+Simulated transfer outcome
+In-app
+Expected
+NOT-005
+Transfer
+Failure/hold
+Customer
+Clear outcome and recovery
+In-app
+Expected
+NOT-006
+Fraud
+High-risk hold
+Customer
+Explain hold/additional confirmation
+In-app
+Confirmed; external channel TBD
+NOT-007
+Schedule
+Created/executed/failed
+Customer
+Communicate schedule outcome
+TBD
+TBD
+NOT-008
+Loan
+Submission
+Customer
+Application received/status
+TBD
+TBD
+NOT-009
+Loan
+Approval/rejection
+Customer
+Decision communicated
+TBD
+TBD
+NOT-010
+KYC
+Mismatch
+Customer/reviewer TBD
+Review required
+TBD
+TBD
+NOT-011
+Security
+Session timeout/expiry
+Current user
+Warn and require authentication
+In-app
+Confirmed
+NOT-012
+Admin
+Approval/rejection
+Affected user; admin
+Decision/outcome communicated
+TBD
+TBD
+22. Product Security Requirements
+Authentication is required for customer banking functionality.
+Authorization must follow role permissions.
+Five-minute inactivity timeout is a confirmed product requirement.
+Transfer confirmation and OTP are explicit product controls.
+Sensitive account information, password input and KYC information must be handled and displayed appropriately.
+High-risk transactions require additional confirmation.
+AI must not independently execute financial transactions.
+Banking Assistant must remain read-only.
+Expired sessions cannot perform protected actions.
+Scope Boundary: This section defines product behavior only. Authentication standards, cryptographic details, token architecture and infrastructure controls belong in technical security documentation.
+23. Accessibility Requirements
+Area
+Expectation
+Status
+Keyboard navigation
+Core journeys should be usable without requiring pointer-only interaction.
+Product expectation; exact standard TBD
+Form labels
+Inputs should have clear, persistent labels and associated errors.
+Product expectation
+Error messages
+Errors must identify the affected action/field in understandable language.
+Product expectation
+Focus states
+Interactive elements and dialogs should preserve meaningful focus behavior.
+Product expectation
+Contrast
+Important information/statuses should remain perceivable.
+Product expectation; exact standard TBD
+Screen-reader labels
+Controls should have meaningful accessible names.
+Product expectation
+Dialogs
+Confirmation/timeout dialogs should be understandable and operable.
+Product expectation
+OTP input
+OTP step should communicate field purpose, error and retry/expiry state.
+Product expectation
+Date picker
+Date selection must expose accessible labels and validation.
+Product expectation
+Virtual keyboard
+Password-entry interaction must remain usable and understandable.
+Product expectation
+24. Responsive Experience
+Device Context
+Product Expectation
+Status
+Desktop
+Core banking journeys should be fully usable in the primary desktop experience.
+Responsive behavior – Product Decision Required
+Tablet
+Usable presentation is desirable but exact behavior is not defined in the BRD.
+Responsive behavior – Product Decision Required
+Mobile
+Mobile behavior/breakpoints are not defined in the BRD.
+Responsive behavior – Product Decision Required
+Product Decision Required: Confirm whether NeoBank is desktop-only for the initial release or requires tablet/mobile parity. Do not invent breakpoints in the PRD.
+25. Analytics / Product Metrics
+Metric ID
+Metric
+Purpose
+Event
+Target
+MET-001
+Account page usage
+Understand usage of account visibility
+Account screen opened
+TBD
+MET-002
+Beneficiary creation completion
+Understand beneficiary funnel completion
+Beneficiary successfully created
+TBD
+MET-003
+Transfer completion rate
+Understand simulated transfer journey effectiveness
+Transfer completed
+TBD
+MET-004
+Transfer failure rate
+Identify product friction/failure
+Transfer failed/blocked
+TBD
+MET-005
+Scheduled transfer creation
+Measure schedule adoption
+Schedule created
+TBD
+MET-006
+Statement downloads
+Measure statement usage
+PDF download
+TBD
+MET-007
+Loan application completion
+Understand loan funnel completion
+Application submitted
+TBD
+MET-008
+AI feature usage
+Understand adoption of AI features
+Feature interaction
+TBD
+MET-009
+Banking Assistant usage
+Understand read-only assistant usage
+Assistant query
+TBD
+MET-010
+KYC mismatch rate
+Understand mismatch occurrence
+Mismatch flagged
+TBD
+These are potential product metrics suggested by the PRD prompt. No target values are inferred; targets remain TBD.
+26. Product Acceptance Criteria
+Feature-level acceptance criteria are defined inside each feature specification. The consolidated list below provides a traceable view for Product, QA and UAT.
+BNK-FR-01
+AC-BNK-FR-01-F01: Given an authenticated customer with an accessible account, when Accounts is opened, then the account summary is displayed.
+AC-BNK-FR-01-F02: Given a selected account, when details are opened, then account-specific information is presented in tabs.
+AC-BNK-FR-01-F03: Given account data is unavailable, then the product shows an appropriate error/empty state without unauthorized data.
+BNK-FR-02
+AC-BNK-FR-02-F01: Given valid beneficiary information, when submitted, then a pending beneficiary is created.
+AC-BNK-FR-02-F02: Given a beneficiary still within the cooling period, when used for transfer, then the transfer is blocked.
+AC-BNK-FR-02-F03: Given the activation condition is satisfied, then the beneficiary becomes Active.
+BNK-FR-03
+AC-BNK-FR-03-F01: Given valid transfer information, when the customer confirms, then OTP is requested.
+AC-BNK-FR-03-F02: Given valid OTP and no blocking risk rule, then the simulated transfer completes and a reference is displayed.
+AC-BNK-FR-03-F03: Given invalid/expired OTP, then the transfer does not complete.
+AC-BNK-FR-03-F04: Given a high-risk assessment, then the transaction is held for additional confirmation.
+BNK-FR-04
+AC-BNK-FR-04-F01: Given a valid future date, then a future-dated schedule can be created.
+AC-BNK-FR-04-F02: Given a valid recurring configuration, then a recurring schedule can be created.
+AC-BNK-FR-04-F03: Given a prohibited past date, then schedule creation is prevented.
+BNK-FR-05
+AC-BNK-FR-05-F01: Given a valid account/date range, then a statement is generated.
+AC-BNK-FR-05-F02: Given a generated statement, then it opens in a new tab.
+AC-BNK-FR-05-F03: Given a generated statement, then PDF download is available.
+AC-BNK-FR-05-F04: Given no transactions, then an appropriate empty result is shown.
+BNK-FR-06
+AC-BNK-FR-06-F01: Given valid loan application data, then the application can be submitted.
+AC-BNK-FR-06-F02: Given slider changes, then the EMI result updates according to calculator behavior.
+AC-BNK-FR-06-F03: Given AI pre-assessment output, then it is labeled advisory.
+AC-BNK-FR-06-F04: Given a submitted application, the Loan Officer can make the final decision.
+BNK-FR-07
+AC-BNK-FR-07-F01: Given five minutes of inactivity, then the timeout popup is displayed.
+AC-BNK-FR-07-F02: Given an expired session, then protected access requires authentication.
+AC-BNK-FR-07-F03: Given password entry, then the virtual keyboard is available.
+BNK-FR-08
+AC-BNK-FR-08-F01: Given an authorized Branch Admin and a pending record, then the record can be reviewed and actioned.
+AC-BNK-FR-08-F02: Given approval, then status changes to approved.
+AC-BNK-FR-08-F03: Given rejection and required reason, then status changes to rejected.
+AC-BNK-FR-08-F04: Given unauthorized access, then the admin area is inaccessible.
+BNK-AI-01
+AC-BNK-AI-01-A01: Given an eligible simulated transaction, when fraud assessment is available, then a fraud-risk assessment is produced.
+AC-BNK-AI-01-A02: Given a high-risk assessment, then the transaction is held and additional confirmation is required.
+AC-BNK-AI-01-A03: AI never directly executes a transfer.
+BNK-AI-02
+AC-BNK-AI-02-A01: Given eligible transactions, then categories are assigned where possible.
+AC-BNK-AI-02-A02: Monthly category totals are presented.
+AC-BNK-AI-02-A03: The explanation is grounded in available transaction data.
+BNK-AI-03
+AC-BNK-AI-03-A01: Given sufficient loan data, then AI returns an advisory pre-assessment.
+AC-BNK-AI-03-A02: Suggested amount/reasons are labeled advisory.
+AC-BNK-AI-03-A03: Loan Officer remains final decision maker.
+AC-BNK-AI-03-A04: AI cannot independently approve or reject.
+BNK-AI-04
+AC-BNK-AI-04-A01: Given an accepted upload, name/DOB/ID extraction is attempted.
+AC-BNK-AI-04-A02: Extracted values are compared with customer records.
+AC-BNK-AI-04-A03: Mismatches are flagged.
+AC-BNK-AI-04-A04: Failed/poor-quality extraction does not fabricate values.
+BNK-AI-05
+AC-BNK-AI-05-A01: Supported balance queries return authorized data.
+AC-BNK-AI-05-A02: Supported last-transaction queries return authorized data.
+AC-BNK-AI-05-A03: Supported FD-rate queries return configured data.
+AC-BNK-AI-05-A04: Transfer instructions are refused and never executed, initiated, approved or confirmed.
+AC-BNK-AI-05-A05: Unsupported/unreliable questions do not produce fabricated answers.
+27. Feature-Level Acceptance Criteria Matrix
+Feature ID
+Module
+Criteria Count
+Acceptance Location
+UAT/Test Coverage
+BNK-FR-01
+Accounts
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-02
+Beneficiaries
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-03
+Fund Transfer
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-04
+Scheduled Transfers
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-05
+Statements
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-06
+Loans
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-07
+Security
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-FR-08
+Branch Admin
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-AI-01
+Fraud Detection
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-AI-02
+Spend Insights
+3
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-AI-03
+Loan Eligibility
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-AI-04
+KYC Document Check
+4
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+BNK-AI-05
+Banking Assistant
+5
+See Section 11/12 feature specification
+TBD / aligned to approved BRD and UAT
+28. Product Dependencies
+Dependency ID
+Dependency
+Feature
+Impact
+Owner
+Status
+DEP-001
+Authentication
+Customer Login, all protected features
+User authentication and session access
+TBD
+Required
+DEP-002
+IFSC lookup
+BNK-FR-02
+Beneficiary lookup/autosuggest and validation
+TBD
+Required
+DEP-003
+OTP
+BNK-FR-03
+Transfer verification
+TBD
+Required
+DEP-004
+Account data
+FR-01/03/04/05/AI-05
+Account balances/details and source data
+TBD
+Required
+DEP-005
+Transaction data
+FR-03/05/AI-01/AI-02/AI-05
+Transactions for transfer history/statements/AI
+TBD
+Required
+DEP-006
+PDF generation
+BNK-FR-05
+Statement PDF generation
+TBD
+Required
+DEP-007
+Loan data
+BNK-FR-06 / AI-03
+Loan application/review
+TBD
+Required
+DEP-008
+EMI calculator
+BNK-FR-06
+EMI estimation using specified iframe
+TBD
+Required
+DEP-009
+KYC processing
+BNK-AI-04
+Document extraction/comparison
+TBD
+Required
+DEP-010
+AI services
+BNK-AI-01 to AI-05
+AI-powered capabilities
+TBD
+Required
+DEP-011
+Fraud scoring
+BNK-FR-03 / AI-01
+Risk handling
+TBD
+Required
+DEP-012
+FD rate source
+BNK-AI-05
+Read-only FD rate answers
+TBD
+Source TBD
+DEP-013
+Branch Admin authentication
+BNK-FR-08
+Admin access
+TBD
+Mechanism TBD
+29. Product Risks
+Risk ID
+Risk
+Feature
+Impact
+Mitigation
+Owner
+RISK-001
+User confusion during high-risk transfer
+Fraud
+Medium
+Clear hold/confirmation experience; exact messaging TBD
+TBD
+RISK-002
+AI false positive
+Fraud
+High
+Additional confirmation/review and approved threshold rules
+TBD
+RISK-003
+AI false negative
+Fraud
+High
+Monitoring/governance; exact controls TBD
+TBD
+RISK-004
+AI incorrect categorization
+Spend Insights
+Medium
+Transparent categories; correction behavior TBD
+TBD
+RISK-005
+KYC extraction error
+KYC
+High
+Confidence/review path; no silent overwrite
+TBD
+RISK-006
+Loan recommendation misunderstood as approval
+Loan AI
+High
+Prominent advisory disclaimer; officer final decision
+TBD
+RISK-007
+OTP failure
+Transfer
+Medium
+Define expiry/retry/recovery rules
+TBD
+RISK-008
+Transfer failure outcome uncertainty
+Transfer
+High
+Do not show success without confirmed result; recovery behavior TBD
+TBD
+RISK-009
+AI unavailable
+All AI
+Medium
+Define product fallbacks before release
+TBD
+RISK-010
+Privacy concern
+AI/KYC
+High
+Define data handling and retention
+TBD
+RISK-011
+Banking Assistant incorrect response
+Assistant
+High
+Ground responses in authorized data; refuse unsupported queries
+TBD
+Likelihood values are intentionally not assigned where the source requirements did not justify them. The impact levels above are product-risk framing for planning; Product/Project leadership should validate them before formal risk reporting.
+30. Open Product Decisions
+Decision ID
+Decision Required
+Feature
+Owner
+Due Date
+Status
+DEC-001
+What additional account-detail fields are required?
+Account Summary
+TBD
+TBD
+Open
+DEC-002
+What is the exact masking standard?
+Account Summary
+TBD
+TBD
+Open
+DEC-003
+Should available balance be shown separately from account balance?
+Account Summary
+TBD
+TBD
+Open
+DEC-004
+Cooling period duration – TBD – Business Decision Required.
+Add Beneficiary and Activation
+TBD
+TBD
+Open
+DEC-005
+What exact actions are allowed while Pending?
+Add Beneficiary and Activation
+TBD
+TBD
+Open
+DEC-006
+What are modification/deletion rules by status?
+Add Beneficiary and Activation
+TBD
+TBD
+Open
+DEC-007
+Transaction limit – TBD.
+Simulated Fund Transfers
+TBD
+TBD
+Open
+DEC-008
+OTP expiry duration – TBD.
+Simulated Fund Transfers
+TBD
+TBD
+Open
+DEC-009
+OTP retry limit – TBD.
+Simulated Fund Transfers
+TBD
+TBD
+Open
+DEC-010
+Exact ordering of fraud assessment versus OTP verification beyond the confirmed BRD flow needs Product Decision if implementation requires further specificity.
+Simulated Fund Transfers
+TBD
+TBD
+Open
+DEC-011
+What human role can override a fraud hold? – TBD.
+Simulated Fund Transfers
+TBD
+TBD
+Open
+DEC-012
+Supported recurring frequencies – TBD.
+Future-Dated and Recurring Transfers
+TBD
+TBD
+Open
+DEC-013
+Are end dates mandatory for recurring schedules? – TBD.
+Future-Dated and Recurring Transfers
+TBD
+TBD
+Open
+DEC-014
+What modifications/cancellations are allowed after creation? – TBD.
+Future-Dated and Recurring Transfers
+TBD
+TBD
+Open
+DEC-015
+Maximum statement date range – TBD.
+Generate and Download Statements
+TBD
+TBD
+Open
+DEC-016
+Expected behavior for very large statements – TBD.
+Generate and Download Statements
+TBD
+TBD
+Open
+DEC-017
+Loan eligibility criteria – TBD.
+Loan Application and EMI Calculator
+TBD
+TBD
+Open
+DEC-018
+Maximum loan amount – TBD.
+Loan Application and EMI Calculator
+TBD
+TBD
+Open
+DEC-019
+Interest-rate source – TBD.
+Loan Application and EMI Calculator
+TBD
+TBD
+Open
+DEC-020
+KYC/document requirements – TBD.
+Loan Application and EMI Calculator
+TBD
+TBD
+Open
+DEC-021
+Exact Branch Admin involvement – TBD.
+Loan Application and EMI Calculator
+TBD
+TBD
+Open
+DEC-022
+Exact warning/redirect semantics – TBD.
+Session Timeout and Virtual Keyboard
+TBD
+TBD
+Open
+DEC-023
+Unsaved-information behavior on expiry – TBD.
+Session Timeout and Virtual Keyboard
+TBD
+TBD
+Open
+DEC-024
+Staff-session applicability – TBD.
+Session Timeout and Virtual Keyboard
+TBD
+TBD
+Open
+DEC-025
+Authentication mechanism – TBD – Business Decision Required.
+Account and Loan Approval
+TBD
+TBD
+Open
+DEC-026
+Conflict/concurrency handling – TBD.
+Account and Loan Approval
+TBD
+TBD
+Open
+DEC-027
+Exact Branch Admin scope across accounts/loans – TBD.
+Account and Loan Approval
+TBD
+TBD
+Open
+DEC-028
+Risk thresholds/categories – TBD.
+Transaction Fraud Risk Assessment
+TBD
+TBD
+Open
+DEC-029
+AI confidence treatment – TBD.
+Transaction Fraud Risk Assessment
+TBD
+TBD
+Open
+DEC-030
+AI unavailable behavior – TBD.
+Transaction Fraud Risk Assessment
+TBD
+TBD
+Open
+DEC-031
+Human override role and workflow – TBD.
+Transaction Fraud Risk Assessment
+TBD
+TBD
+Open
+DEC-032
+Exact category list – TBD.
+Transaction Categorization and Monthly Spending Explanation
+TBD
+TBD
+Open
+DEC-033
+User correction behavior – TBD.
+Transaction Categorization and Monthly Spending Explanation
+TBD
+TBD
+Open
+DEC-034
+Trend definitions – TBD.
+Transaction Categorization and Monthly Spending Explanation
+TBD
+TBD
+Open
+DEC-035
+Confidence presentation – TBD.
+Transaction Categorization and Monthly Spending Explanation
+TBD
+TBD
+Open
+DEC-036
+Exact eligibility criteria – TBD.
+AI Loan Eligibility Pre-Assessment
+TBD
+TBD
+Open
+DEC-037
+AI confidence/uncertainty display – TBD.
+AI Loan Eligibility Pre-Assessment
+TBD
+TBD
+Open
+DEC-038
+Human override workflow – TBD.
+AI Loan Eligibility Pre-Assessment
+TBD
+TBD
+Open
+DEC-039
+Supported document types – TBD.
+KYC Information Extraction and Mismatch Detection
+TBD
+TBD
+Open
+DEC-040
+Confidence threshold – TBD.
+KYC Information Extraction and Mismatch Detection
+TBD
+TBD
+Open
+DEC-041
+Manual-review role/process – TBD.
+KYC Information Extraction and Mismatch Detection
+TBD
+TBD
+Open
+DEC-042
+Data retention – TBD.
+KYC Information Extraction and Mismatch Detection
+TBD
+TBD
+Open
+DEC-043
+Banking Assistant authentication behavior – TBD.
+Read-Only Banking Assistant
+TBD
+TBD
+Open
+DEC-044
+FD rate data source – TBD.
+Read-Only Banking Assistant
+TBD
+TBD
+Open
+DEC-045
+Escalation path – TBD.
+Read-Only Banking Assistant
+TBD
+TBD
+Open
+DEC-046
+Low-confidence behavior – TBD.
+Read-Only Banking Assistant
+TBD
+TBD
+Open
+31. Release Plan
+The PRD prompt requests Release 1 / Release 2 / Release 3 planning but explicitly prohibits arbitrary assignment. The BRD does not define release scope.
+Feature
+Release
+Priority
+Dependency
+Status
+BNK-FR-01
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Authentication; account data.
+Release assignment pending Product Owner
+BNK-FR-02
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Authentication; IFSC lookup; notification capability; Fund Transfer.
+Release assignment pending Product Owner
+BNK-FR-03
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Accounts; Beneficiaries; Authentication; OTP; Fraud Detection.
+Release assignment pending Product Owner
+BNK-FR-04
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Accounts; Beneficiaries; Fund Transfer.
+Release assignment pending Product Owner
+BNK-FR-05
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Account data; Transaction data; PDF generation.
+Release assignment pending Product Owner
+BNK-FR-06
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Loan data; EMI calculator; AI Loan Eligibility; Authentication; Branch Admin workflow.
+Release assignment pending Product Owner
+BNK-FR-07
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Authentication; Session management.
+Release assignment pending Product Owner
+BNK-FR-08
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Branch Admin authentication; Account data; Loan data; Notifications.
+Release assignment pending Product Owner
+BNK-AI-01
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Fund Transfer; transaction data; AI fraud service.
+Release assignment pending Product Owner
+BNK-AI-02
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Transaction data; AI service.
+Release assignment pending Product Owner
+BNK-AI-03
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Loan Application; customer/application data; AI service.
+Release assignment pending Product Owner
+BNK-AI-04
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+KYC document processing; customer data; AI/OCR capability.
+Release assignment pending Product Owner
+BNK-AI-05
+TBD – Product Owner Decision Required
+TBD – Product Owner Decision Required
+Account data; transaction data; FD rate data source; AI service; authentication.
+Release assignment pending Product Owner
+Product Decision Required: Confirm whether the product should be grouped as Core Banking Experience, Advanced Banking and AI Capabilities, and assign features only after priority and dependency review.
+32. Product Requirement Traceability
+BRD Requirement
+PRD Feature
+User Journey
+Screen
+Acceptance Criteria
+Release
+Status
+BNK-FR-01
+Account Summary
+BNK-FR-01
+See UJ related to feature
+See screen inventory
+AC-BNK-FR-01
+TBD – Product Owner Decision Required
+BRD Requirement
+PRD Feature
+User Journey
+Screen
+Acceptance Criteria
+Release
+Status
+BNK-FR-01
+Account Summary
+UJ related to BNK-FR-01
+See screen inventory
+Acceptance criteria for BNK-FR-01
+TBD – Product Owner Decision Required
+Open
+BNK-FR-02
+Add Beneficiary and Activation
+UJ related to BNK-FR-02
+See screen inventory
+Acceptance criteria for BNK-FR-02
+TBD – Product Owner Decision Required
+Open
+BNK-FR-03
+Simulated Fund Transfers
+UJ related to BNK-FR-03
+See screen inventory
+Acceptance criteria for BNK-FR-03
+TBD – Product Owner Decision Required
+Open
+BNK-FR-04
+Future-Dated and Recurring Transfers
+UJ related to BNK-FR-04
+See screen inventory
+Acceptance criteria for BNK-FR-04
+TBD – Product Owner Decision Required
+Open
+BNK-FR-05
+Generate and Download Statements
+UJ related to BNK-FR-05
+See screen inventory
+Acceptance criteria for BNK-FR-05
+TBD – Product Owner Decision Required
+Open
+BNK-FR-06
+Loan Application and EMI Calculator
+UJ related to BNK-FR-06
+See screen inventory
+Acceptance criteria for BNK-FR-06
+TBD – Product Owner Decision Required
+Open
+BNK-FR-07
+Session Timeout and Virtual Keyboard
+UJ related to BNK-FR-07
+See screen inventory
+Acceptance criteria for BNK-FR-07
+TBD – Product Owner Decision Required
+Open
+BNK-FR-08
+Account and Loan Approval
+UJ related to BNK-FR-08
+See screen inventory
+Acceptance criteria for BNK-FR-08
+TBD – Product Owner Decision Required
+Open
+BNK-AI-01
+Transaction Fraud Risk Assessment
+UJ related to BNK-AI-01
+See screen inventory
+Acceptance criteria for BNK-AI-01
+TBD – Product Owner Decision Required
+Open
+BNK-AI-02
+Transaction Categorization and Monthly Spending Explanation
+UJ related to BNK-AI-02
+See screen inventory
+Acceptance criteria for BNK-AI-02
+TBD – Product Owner Decision Required
+Open
+BNK-AI-03
+AI Loan Eligibility Pre-Assessment
+UJ related to BNK-AI-03
+See screen inventory
+Acceptance criteria for BNK-AI-03
+TBD – Product Owner Decision Required
+Open
+BNK-AI-04
+KYC Information Extraction and Mismatch Detection
+UJ related to BNK-AI-04
+See screen inventory
+Acceptance criteria for BNK-AI-04
+TBD – Product Owner Decision Required
+Open
+BNK-AI-05
+Read-Only Banking Assistant
+UJ related to BNK-AI-05
+See screen inventory
+Acceptance criteria for BNK-AI-05
+TBD – Product Owner Decision Required
+Open
+33. BRD → PRD → Development Traceability
+Traceability model:
+Business Requirement → BRD Requirement ID → PRD Feature → User Journey → Screen → Acceptance Criteria → Development → QA / UAT
+No actual development ticket IDs are included because none are present in the approved BRD.
+34. Product Decision Log
+Decision ID
+Decision
+Reason
+Owner
+Date
+Status
+PD-001
+Priority and release allocation
+The BRD does not define feature priorities or release allocation; Product Owner decision is required.
+TBD
+TBD
+Open
+PD-002
+Beneficiary cooling period
+Required to determine when an added beneficiary becomes transferable.
+TBD
+TBD
+Open
+PD-003
+Transfer controls
+Transaction limits, OTP expiry and retry behavior are not defined.
+TBD
+TBD
+Open
+PD-004
+AI thresholds/fallbacks
+Fraud and AI confidence thresholds and AI-unavailable behavior are not defined.
+TBD
+TBD
+Open
+PD-005
+Loan criteria
+Eligibility criteria, maximum amount, rate source and exact review path require confirmation.
+TBD
+TBD
+Open
+35. UAT Product Scenarios
+UAT ID
+Scenario
+Requirement
+Expected Product Outcome
+UAT-01
+Customer views account
+BNK-FR-01
+Authorized account summary/details are visible.
+UAT-02
+Customer adds beneficiary
+BNK-FR-02
+Valid beneficiary enters pending lifecycle state.
+UAT-03
+Beneficiary activation
+BNK-FR-02
+After approved activation condition, beneficiary becomes Active.
+UAT-04
+Transfer to inactive beneficiary
+BNK-FR-02/03
+Product blocks transfer.
+UAT-05
+Own-account transfer
+BNK-FR-03
+Confirmation + OTP + simulated outcome.
+UAT-06
+Other-bank transfer
+BNK-FR-03
+Active beneficiary + confirmation + OTP + simulated outcome.
+UAT-07
+Mock UPI transfer
+BNK-FR-03
+Mock transfer flow works without real UPI.
+UAT-08
+High-risk transfer
+BNK-AI-01
+Transaction is held and requires additional confirmation.
+UAT-09
+Future-dated schedule
+BNK-FR-04
+Valid schedule is created.
+UAT-10
+Recurring schedule
+BNK-FR-04
+Approved recurrence option can be configured.
+UAT-11
+Generate/download statement
+BNK-FR-05
+Statement generates, opens in new tab and downloads as PDF.
+UAT-12
+Loan application
+BNK-FR-06
+Application can be submitted and tracked.
+UAT-13
+AI loan pre-assessment
+BNK-AI-03
+Advisory result is visible and not treated as final decision.
+UAT-14
+Loan Officer decision
+BNK-FR-06
+Officer can make final decision according to workflow.
+UAT-15
+KYC document check
+BNK-AI-04
+Name/DOB/ID extraction attempted and mismatches flagged.
+UAT-16
+Spend insights
+BNK-AI-02
+Categories, totals and grounded explanation displayed.
+UAT-17
+Banking Assistant balance
+BNK-AI-05
+Authorized balance returned.
+UAT-18
+Assistant transfer refusal
+BNK-AI-05
+Transfer instruction refused and not executed.
+UAT-19
+Branch Admin account approval
+BNK-FR-08
+Authorized admin can approve/reject pending account.
+UAT-20
+Branch Admin loan approval
+BNK-FR-08
+Authorized admin can approve/reject pending loan.
+UAT-21
+Session timeout
+BNK-FR-07
+Five-minute inactivity produces timeout behavior.
+36. Product Quality Check
+Check
+Expected Result
+Review Status
+Requirement Coverage
+BNK-FR-01 through BNK-FR-08 have individual PRD feature specifications.
+To Be Revalidated
+AI Coverage
+BNK-AI-01 through BNK-AI-05 have individual AI product specifications.
+To Be Revalidated
+User Coverage
+Customer, Teller, Loan Officer and Branch Admin are covered.
+To Be Revalidated
+UX Coverage
+Each feature has entry point, actions, product behavior and states.
+To Be Revalidated
+Validation Coverage
+Feature-level validation behavior is documented.
+To Be Revalidated
+Acceptance Coverage
+Every feature has observable acceptance criteria.
+To Be Revalidated
+Traceability
+Every PRD feature maps to its BRD requirement.
+To Be Revalidated
+TBD Management
+Unresolved items are carried forward rather than invented.
+To Be Revalidated
+Product Safety
+Simulated-money and AI restrictions are preserved.
+To Be Revalidated
+Loan Governance
+Loan Officer remains final decision maker.
+To Be Revalidated
+37. Final PRD Summary
+Product Summary
+NeoBank is a retail internet banking portal covering account visibility, beneficiary lifecycle, simulated fund transfers, scheduled transfers, statements, loans, security controls, branch approvals and five AI-powered product capabilities.
+Features Covered
+BNK-FR-01 – Account Summary, BNK-FR-02 – Add Beneficiary and Activation, BNK-FR-03 – Simulated Fund Transfers, BNK-FR-04 – Future-Dated and Recurring Transfers, BNK-FR-05 – Generate and Download Statements, BNK-FR-06 – Loan Application and EMI Calculator, BNK-FR-07 – Session Timeout and Virtual Keyboard, BNK-FR-08 – Account and Loan Approval, BNK-AI-01 – Transaction Fraud Risk Assessment, BNK-AI-02 – Transaction Categorization and Monthly Spending Explanation, BNK-AI-03 – AI Loan Eligibility Pre-Assessment, BNK-AI-04 – KYC Information Extraction and Mismatch Detection, BNK-AI-05 – Read-Only Banking Assistant.
+User Roles Covered
+Customer, Teller, Loan Officer and Branch Admin. Staff permissions not explicitly defined in the BRD remain TBD.
+AI Capabilities
+Fraud Detection, Spend Insights, Loan Eligibility Pre-Assessment, KYC Document Check and Banking Assistant.
+MVP / Release Status
+MVP scope, feature priorities and release assignments are Product Owner decisions because the approved BRD does not explicitly define them.
+Major Dependencies
+Authentication, IFSC lookup, OTP, account/transaction data, PDF generation, loan data, EMI calculator, KYC processing, AI services, fraud scoring, FD-rate source and Branch Admin authentication.
+Major Risks
+AI false positives/negatives, incorrect AI categorization or extraction, loan recommendation misunderstanding, OTP/transfer failure, AI availability, privacy concerns and banking-assistant accuracy.
+Open Product Decisions
+Cooling period, transfer limits, OTP rules, recurrence options, loan criteria/limits/rates, fraud thresholds/fallbacks, KYC document types/confidence/retention, staff permissions, notification channels, FD-rate source, Branch Admin authentication and Assistant fallback/low-confidence behavior.
+Critical Product Safety: All money movement is simulated. AI cannot independently transfer money. Banking Assistant is read-only. AI loan eligibility is advisory only; Loan Officer owns the final decision.
+38. Feature-Level Design Handoff Readiness
+UI/UX can use the screen inventory, user journeys, feature specifications and product states as the design baseline. Engineering can use the behavioral requirements, dependencies and acceptance criteria to clarify implementation scope without treating this PRD as an SRS.
+Where a requirement is marked TBD, the Product Owner/Business Team must confirm the decision before it becomes an implementation commitment.
+39. Product Dependencies by Feature
+Feature
+Name
+Product Dependencies
+Owner
+Status
+BNK-FR-01
+Account Summary
+Authentication; account data.
+TBD
+Open
+BNK-FR-02
+Add Beneficiary and Activation
+Authentication; IFSC lookup; notification capability; Fund Transfer.
+TBD
+Open
+BNK-FR-03
+Simulated Fund Transfers
+Accounts; Beneficiaries; Authentication; OTP; Fraud Detection.
+TBD
+Open
+BNK-FR-04
+Future-Dated and Recurring Transfers
+Accounts; Beneficiaries; Fund Transfer.
+TBD
+Open
+BNK-FR-05
+Generate and Download Statements
+Account data; Transaction data; PDF generation.
+TBD
+Open
+BNK-FR-06
+Loan Application and EMI Calculator
+Loan data; EMI calculator; AI Loan Eligibility; Authentication; Branch Admin workflow.
+TBD
+Open
+BNK-FR-07
+Session Timeout and Virtual Keyboard
+Authentication; Session management.
+TBD
+Open
+BNK-FR-08
+Account and Loan Approval
+Branch Admin authentication; Account data; Loan data; Notifications.
+TBD
+Open
+BNK-AI-01
+Transaction Fraud Risk Assessment
+Fund Transfer; transaction data; AI fraud service.
+TBD
+Open
+BNK-AI-02
+Transaction Categorization and Monthly Spending Explanation
+Transaction data; AI service.
+TBD
+Open
+BNK-AI-03
+AI Loan Eligibility Pre-Assessment
+Loan Application; customer/application data; AI service.
+TBD
+Open
+BNK-AI-04
+KYC Information Extraction and Mismatch Detection
+KYC document processing; customer data; AI/OCR capability.
+TBD
+Open
+BNK-AI-05
+Read-Only Banking Assistant
+Account data; transaction data; FD rate data source; AI service; authentication.
+TBD
+Open
+40. Product Risk-to-Requirement Mapping
+Requirement
+Related Risks
+Mitigation Reference
+Status
+BNK-FR-03
+RISK-001, RISK-007, RISK-008
+See Section 29
+Open
+BNK-FR-06
+RISK-006
+See Section 29
+Open
+BNK-AI-01
+RISK-002, RISK-003, RISK-009
+See Section 29
+Open
+BNK-AI-02
+RISK-004
+See Section 29
+Open
+BNK-AI-04
+RISK-005, RISK-010
+See Section 29
+Open
+BNK-AI-05
+RISK-011, RISK-010
+See Section 29
+Open
+BNK-FR-07
+RISK-010
+See Section 29
+Open
+41. Product Decision Governance
+Confirmed BRD requirements remain authoritative unless formally changed.
+TBD values are tracked as explicit product decisions.
+Product Recommendations are advisory and do not become scope until approved.
+AI behaviors with customer or financial consequences require explicit product governance before release.
+Changes to simulation boundaries, AI restrictions or final loan decision ownership require controlled requirement change and traceability updates.
+42. Product Recommendation Register
+Recommendation ID
+Recommendation
+Reason
+Type
+Status
+REC-001
+Use visible advisory labeling for AI loan output.
+Reduce risk of customers interpreting pre-assessment as approval.
+Product Recommendation
+TBD
+REC-002
+Use explicit beneficiary lifecycle status labels.
+Make transfer eligibility understandable.
+Product Recommendation
+TBD
+REC-003
+Keep high-risk transfer messaging focused on the required next action.
+Reduce user confusion while a transfer is held.
+Product Recommendation
+TBD
+REC-004
+Keep unspecified limits/thresholds configurable.
+Avoid converting TBD business decisions into hidden assumptions.
+Product Recommendation
+TBD
+REC-005
+Refuse transfer requests in Assistant and route users to Fund Transfer.
+Preserve strict read-only behavior.
+Product Recommendation
+TBD
+43. Product Assumption Register
+Assumption ID
+Assumption
+Rationale
+Classification
+ASM-001
+Unspecified staff permissions remain TBD.
+Avoid granting access that the BRD does not authorize.
+Product Assumption
+ASM-002
+Notification wording is not fixed in the source.
+Allows UX copy refinement without scope change.
+Product Assumption
+ASM-003
+Responsive/mobile behavior is not defined.
+Prevents unsupported device commitments.
+Product Assumption
+ASM-004
+AI model/technology is intentionally not specified.
+Preserves the PRD/SRS/technical-design boundary.
+Product Assumption
+44. Change Impact Guidance
+Any change to a confirmed BRD requirement should trigger a review of the corresponding PRD feature, user journey, screen inventory, validations, states, acceptance criteria, dependencies, risks, UAT scenarios and release assignment.
+Resolution of a TBD can be incorporated as a confirmed product decision after approval, provided the decision does not contradict another approved requirement.
+45. UAT Entry / Exit Considerations
+Area
+Entry Consideration
+Exit Consideration
+Core features
+Requirements, states, validation and dependencies are clarified.
+Business stakeholders accept the observed user journey and outcome.
+AI features
+Output presentation, disclaimers, fallback and human oversight are confirmed.
+Stakeholders accept AI interaction, limitations and controls.
+Permissions
+Role access is confirmed for relevant features.
+Authorized actions work and unauthorized actions are prevented.
+Notifications
+Required in-app behavior is agreed; external channels are resolved or deferred explicitly.
+Stakeholders accept communication behavior.
+TBD controls
+Release-critical business decisions are resolved.
+No release-critical TBD remains unresolved.
+46. Final Product Approval / Sign-Off
+Approval indicates that the product requirements are sufficiently defined for UI/UX planning, development estimation, QA planning and UAT preparation, subject to the recorded TBDs and change-control process.
+Role
+Name
+Signature
+Date
+Product Owner
+Business Owner
+Project Lead
+Business Analyst
+UI/UX Lead
+Technical Lead
+QA Lead
+47. Source Requirement Baseline
+The following requirement identifiers and TR identifiers are preserved from the approved BRD and the PRD source prompt.
+Requirement ID
+Module
+TR
+Authoritative Requirement
+BNK-FR-01
+Accounts
+TR-03
+Account summary for Savings, Current and FD with balances and account details in tabs
+BNK-FR-02
+Beneficiaries
+TR-01 L3
+Add beneficiary with IFSC lookup/autosuggest and activation after cooling period
+BNK-FR-03
+Fund Transfer
+TR-06, TR-05
+Own account, other bank and mock UPI transfers with confirmation and OTP
+BNK-FR-04
+Scheduled Transfers
+TR-02
+Future-dated and recurring transfers
+BNK-FR-05
+Statements
+TR-02, TR-03
+Date-range statements, PDF download and new-tab viewing
+BNK-FR-06
+Loans
+TR-04, TR-01 L4
+Loan application with EMI calculator in iframe and slider inputs
+BNK-FR-07
+Security
+TR-05, TR-01 L4
+Five-minute idle session timeout and virtual keyboard on password field
+BNK-FR-08
+Branch Admin
+TR-07
+Approve accounts and loans in Basic Auth area
+BNK-AI-01
+Fraud Detection
+Not separately specified
+Score transactions for fraud risk; hold high-risk transactions for additional confirmation
+BNK-AI-02
+Spend Insights
+Not separately specified
+Categorize transactions and explain monthly spending
+BNK-AI-03
+Loan Eligibility
+Not separately specified
+Pre-assess loan eligibility and suggested amount; Officer final decision
+BNK-AI-04
+KYC Document Check
+Not separately specified
+Extract name, DOB and ID number; flag mismatches
+BNK-AI-05
+Banking Assistant
+Not separately specified
+Answer balance, last transactions and FD rates; never perform transfers
+Final Product Safety Check: All money movement remains simulated; AI cannot independently perform financial transactions; the Banking Assistant is read-only; AI loan eligibility is pre-assessment only; and the Loan Officer remains the final decision maker.

@@ -1,0 +1,36 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: transfer-service
+  datasource:
+    url: jdbc:h2:mem:neobank_transfer;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1;INIT=CREATE ROLE IF NOT EXISTS neobank_transfer_app
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+neobank:
+  ledger:
+    url: http://localhost:8083
+    service-token: dev-transfer-to-ledger-token-secret-local
+  account:
+    url: http://localhost:8081
+  otp:
+    require-for-all: true
+  security:
+    internal:
+      schedule-token: dev-schedule-to-transfer-token-secret-local
+

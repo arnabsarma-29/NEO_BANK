@@ -1,6 +1,36 @@
+server:
+  port: 9082
+
 spring:
   application:
     name: transfer-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/neobank_transfer}
+    username: ${SPRING_DATASOURCE_USERNAME:neobank_transfer_app}
+    password: transfer_app
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: ${FLYWAY_USER:neobank_transfer_migrator}
+    password: transfer_migrator
 
-server:
-  port: 8082
+neobank:
+  ledger:
+    url: ${LEDGER_SERVICE_URL:http://localhost:9083}
+    service-token: ${NEOBANK_INTERNAL_TRANSFER_TOKEN:dev-transfer-to-ledger-token-secret-local}
+  account:
+    url: ${ACCOUNT_SERVICE_URL:http://localhost:9081}
+  otp:
+    require-for-all: ${NEOBANK_REQUIRE_OTP_FOR_ALL:true}
+  security:
+    internal:
+      schedule-token: ${NEOBANK_INTERNAL_SCHEDULE_TOKEN:dev-schedule-to-transfer-token-secret-local}
+

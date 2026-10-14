@@ -1,6 +1,46 @@
+server:
+  port: 9083
+
 spring:
   application:
     name: ledger-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/neobank_ledger}
+    username: ${SPRING_DATASOURCE_USERNAME:neobank_ledger_app}
+    password: ledger_app
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    user: ${FLYWAY_USER:neobank_ledger_migrator}
+    password: ledger_migrator
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
 
-server:
-  port: 8083
+neobank:
+  security:
+    internal:
+      transfer-token: ${NEOBANK_INTERNAL_TRANSFER_TOKEN:dev-transfer-to-ledger-token-secret-local}
+  ledger:
+    outbox:
+      enabled: ${NEOBANK_LEDGER_OUTBOX_ENABLED:false}
+      delay-ms: ${NEOBANK_LEDGER_OUTBOX_DELAY_MS:2000}
+      initial-delay-ms: ${NEOBANK_LEDGER_OUTBOX_INITIAL_DELAY_MS:2000}
+      max-retries: 5
+  kafka:
+    topics:
+      transaction-created: ${KAFKA_TOPIC_TRANSACTION_CREATED:ledger.transaction-created}
+      balance-updated: ${KAFKA_TOPIC_BALANCE_UPDATED:ledger.balance-updated}
+      ledger-events: ${KAFKA_TOPIC_LEDGER_EVENTS:ledger.events}
+

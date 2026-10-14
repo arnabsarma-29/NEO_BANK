@@ -1,0 +1,10 @@
+{
+  "sourceAccountId": "ACC-LIVE-TEST-SRC-01",
+  "destinationAccountId": "ACC-LIVE-TEST-DST-01",
+  "transferType": "OWN_ACCOUNT",
+  "amount": 100.00,
+  "currency": "INR",
+  "remarks": "Live scheduled occurrence worker verification",
+  "scheduleType": "ONE_TIME",
+  "startDate": "2026-10-14T12:41:40Z"
+}

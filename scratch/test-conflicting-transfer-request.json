@@ -1,0 +1,11 @@
+{
+  "transferId": "TRF-LIVE-TEST-001",
+  "idempotencyKey": "IDEMP-CONFLICT-TEST",
+  "customerId": "CUST-LIVE-VERIFY-001",
+  "sourceAccountId": "ACC-LIVE-TEST-SRC-01",
+  "destinationAccountId": "ACC-LIVE-TEST-DST-01",
+  "transferType": "OWN_ACCOUNT",
+  "amount": 999.00,
+  "currency": "INR",
+  "remarks": "Conflicting amount"
+}
