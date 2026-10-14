@@ -2,7 +2,6 @@ rootProject.name = 'neobank'
 
 include (
   'api-gateway',
-  'auth-service',
   'account-service',
   'admin-service',
   'customer-service',

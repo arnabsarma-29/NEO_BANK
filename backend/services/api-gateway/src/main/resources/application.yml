@@ -37,22 +37,22 @@ spring:
         - id: statement-service
           uri: ${STATEMENT_SERVICE_URL:http://localhost:9095}
           predicates:
-            - Path=/api/statement/*
+            - Path=/api/statement/**
 
-        - id: beneficiary-service
-          uri: ${BENEFICIARY_SERVICE_URL:http://localhost:9696}
+        - id: beneficiary-legacy-service
+          uri: ${BENEFICIARY_LEGACY_SERVICE_URL:http://localhost:9696}
           predicates:
-            - Path=api/beneficiary/*
+            - Path=/api/beneficiary/**
 
         - id: ledger-service
           uri: ${LEDGER_SERVICE_URL:http://localhost:9083}
           predicates:
-            - Path=api/ledger/*
+            - Path=/api/ledger/**
 
         - id: schedule-service
           uri: ${SCHEDULE_SERVICE_URL:http://localhost:9084}
           predicates:
-            - Path=api/schedule/*
+            - Path=/api/schedule/**
 
   data:
     redis:
@@ -63,3 +63,12 @@ app:
   security:
     jwt:
       audience: neobank-api
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_TRACES_ENDPOINT:http://localhost:4318/v1/traces}

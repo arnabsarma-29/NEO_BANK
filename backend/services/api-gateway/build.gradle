@@ -5,4 +5,8 @@ dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   testImplementation 'org.springframework.security:spring-security-test'
+  implementation 'org.springframework.boot:spring-boot-starter-actuator'
+  implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+  runtimeOnly 'io.opentelemetry:opentelemetry-exporter-otlp'
+  implementation 'com.github.f4b6a3:uuid-creator:6.1.1'
 }
