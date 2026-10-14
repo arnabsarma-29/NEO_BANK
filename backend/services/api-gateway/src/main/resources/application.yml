@@ -15,12 +15,12 @@ spring:
     gateway:
       routes:
         - id: account-service
-          uri: ${ACCOUNT_SERVICE_URL:http://localhost:8082}
+          uri: ${ACCOUNT_SERVICE_URL:http://localhost:9081}
           predicates:
             - Path=/api/accounts/**
 
         - id: transfer-service
-          uri: ${TRANSFER_SERVICE_URL:http://localhost:8083}
+          uri: ${TRANSFER_SERVICE_URL:http://localhost:9082}
           predicates:
             - Path=/api/transfers/**
 
@@ -30,9 +30,29 @@ spring:
             - Path=/api/beneficiaries/**
 
         - id: loan-service
-          uri: ${LOAN_SERVICE_URL:http://localhost:8085}
+          uri: ${LOAN_SERVICE_URL:http://localhost:8022}
           predicates:
             - Path=/api/loans/**
+
+        - id: statement-service
+          uri: ${STATEMENT_SERVICE_URL:http://localhost:9095}
+          predicates:
+            - Path=/api/statement/*
+
+        - id: beneficiary-service
+          uri: ${BENEFICIARY_SERVICE_URL:http://localhost:9696}
+          predicates:
+            - Path=api/beneficiary/*
+
+        - id: ledger-service
+          uri: ${LEDGER_SERVICE_URL:http://localhost:9083}
+          predicates:
+            - Path=api/ledger/*
+
+        - id: schedule-service
+          uri: ${SCHEDULE_SERVICE_URL:http://localhost:9084}
+          predicates:
+            - Path=api/schedule/*
 
   data:
     redis:
